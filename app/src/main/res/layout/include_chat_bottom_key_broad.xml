@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:paddingLeft="5dp"
+       android:paddingRight="5dp">
+
+       <ImageButton
+           android:id="@+id/btnChatVoice"
+           android:layout_width="30dp"
+           android:layout_height="30dp"
+           android:layout_centerVertical="true"
+           android:src="@android:drawable/ic_btn_speak_now"/>
+
+       <EditText
+           android:id="@+id/etChat"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_centerInParent="true"
+           android:layout_marginLeft="5dp"
+           android:layout_marginRight="5dp"
+           android:layout_toRightOf="@+id/btnChatVoice"
+           android:layout_toEndOf="@+id/btnChatVoice"
+           android:layout_toLeftOf="@+id/btnChatLaughFace"
+           android:layout_toStartOf="@+id/btnChatLaughFace" />
+
+       <Button
+           android:id="@+id/btnChatSpeak"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:visibility="gone"
+           android:layout_centerInParent="true"
+           android:layout_marginLeft="5dp"
+           android:layout_marginRight="5dp"
+           android:layout_toRightOf="@+id/btnChatVoice"
+           android:layout_toEndOf="@+id/btnChatVoice"
+           android:layout_toLeftOf="@+id/btnChatLaughFace"
+           android:layout_toStartOf="@+id/btnChatLaughFace"
+           android:text="@string/btn_down_speak"/>
+
+       <Button
+           android:id="@+id/btnChatLaughFace"
+           android:layout_width="30dp"
+           android:layout_height="30dp"
+           android:background="@mipmap/laugh_face"
+           android:layout_centerVertical="true"
+           android:layout_toLeftOf="@+id/btnChatAdd"
+           android:layout_toStartOf="@+id/btnChatAdd" />
+
+       <Button
+           android:id="@+id/btnChatAdd"
+           android:layout_width="30dp"
+           android:layout_height="30dp"
+           android:layout_marginLeft="5dp"
+           android:layout_centerVertical="true"
+           android:background="@mipmap/chat_add"
+           android:layout_alignParentRight="true"
+           android:layout_alignParentEnd="true"
+           android:layout_marginStart="5dp" />
+
+   </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:drawable/divider_horizontal_textfield"/>
+
+    <LinearLayout
+        android:id="@+id/layoutChatBottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:orientation="vertical">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewPagerChat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:id="@+id/layoutChatPoint"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#4b4b4b"
+            android:gravity="center"
+            android:orientation="horizontal"/>
+    </LinearLayout>
+</LinearLayout>
