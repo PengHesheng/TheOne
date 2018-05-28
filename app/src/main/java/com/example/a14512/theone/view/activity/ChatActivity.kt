@@ -15,6 +15,9 @@ import kotlinx.android.synthetic.main.activity_chat.*
 import kotlinx.android.synthetic.main.include_chat_bottom_key_broad.*
 import kotlinx.android.synthetic.main.include_toolbar.*
 
+/**
+ * @author 14512 on 2018/5/21
+ */
 class ChatActivity : BaseActivity() {
     private lateinit var mLayoutChat: LinearLayout
     private lateinit var mRecyclerView: RecyclerView

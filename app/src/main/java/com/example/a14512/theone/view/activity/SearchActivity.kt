@@ -15,6 +15,9 @@ import com.example.a14512.theone.utils.PLog
 import kotlinx.android.synthetic.main.activity_search.*
 import kotlinx.android.synthetic.main.include_search_toolbar.*
 
+/**
+ * @author 14512 on 2018/5/21
+ */
 class SearchActivity : BaseActivity() {
     private lateinit var mGridView: GridView
     private lateinit var mSearchView: SearchView

@@ -24,6 +24,9 @@ import com.example.a14512.theone.view.fragment.SettingsFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import org.greenrobot.eventbus.EventBus
 
+/**
+ * @author 14512 on 2018/5/21
+ */
 class MainActivity : BaseActivity() {
     private lateinit var mToolbar: Toolbar
     private lateinit var mIvAdd: ImageView

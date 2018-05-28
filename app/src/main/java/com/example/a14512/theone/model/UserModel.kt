@@ -37,19 +37,6 @@ class UserModel : BaseModel() {
      * @param listener
      */
     fun register(userName: String, pwd: String, pwdAgain: String, listener: LogInListener<User>) {
-        if (userName.isEmpty()) {
-            listener.done(null, BmobException(CODE_NULL, "请填写用户名"))
-            return
-        }
-        if (pwd.isEmpty()) {
-            listener.done(null, BmobException(CODE_NULL, "请填写密码"))
-            return
-        }
-        if (pwdAgain.isEmpty()) {
-            listener.done(null, BmobException(CODE_NULL, "两次输入的密码不一致，请重新输入"))
-            return
-        }
-
         val user = User()
         user.username = userName
         user.setPassword(pwd)
@@ -72,15 +59,6 @@ class UserModel : BaseModel() {
      * @param listener
      */
     fun login(userName: String, pwd: String, listener: LogInListener<User>) {
-        if (userName.isEmpty()) {
-            listener.done(null, BmobException(CODE_NULL, "请填写用户名"))
-            return
-        }
-        if (pwd.isEmpty()) {
-            listener.done(null, BmobException(CODE_NULL, "请填写密码"))
-            return
-        }
-
         val user = User()
         user.username = userName
         user.setPassword(pwd)
