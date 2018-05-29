@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:paddingBottom="10dp"
+    android:paddingTop="15dp">
+
+    <TextView
+        android:id="@+id/tvItemTimeChatAgree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/color_msg_system_time_bg"
+        android:textColor="@android:color/white"
+        android:padding="5dp"/>
+
+    <TextView
+        android:id="@+id/tvItemContentChatAgree"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_msg_system_time_bg"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:lineSpacingExtra="3dp"
+        android:minHeight="40dip"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"/>
+
+</LinearLayout>

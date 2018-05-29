@@ -3,4 +3,7 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="color_msg_system_time_bg">#20000000</color>
+    <color name="color_chat_send_status">#818181</color>
 </resources>

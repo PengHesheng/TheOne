@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:paddingBottom="10dp"
+    android:paddingTop="15dp">
+
+    <TextView
+        android:id="@+id/tvItemTimeChatReceiveText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/color_msg_system_time_bg"
+        android:textColor="@android:color/white"
+        android:padding="5dp"
+        tools:text="10:30"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="5dp">
+
+        <ImageView
+            android:id="@+id/ivItemPortraitChatReceiveText"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            tools:src="@mipmap/ic_launcher"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:id="@+id/tvItemContentChatReceiveText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:lineSpacingExtra="3dp"
+            android:paddingRight="15dp"
+            android:paddingLeft="30dp"
+            android:paddingTop="10dp"
+            android:layout_toRightOf="@+id/ivItemPortraitChatReceiveText"
+            android:background="@drawable/chat_left_qp"
+            android:paddingBottom="10dp"
+            android:maxWidth="225.0dip"
+            android:minHeight="40.0dip"
+            android:minWidth="40dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_marginStart="5dp"
+            android:paddingEnd="15dp"
+            android:paddingStart="30dp"
+            android:layout_toEndOf="@+id/ivItemPortraitChatReceiveText"
+            tools:text="Hello you are my lucky"/>
+    </RelativeLayout>
+
+</LinearLayout>
