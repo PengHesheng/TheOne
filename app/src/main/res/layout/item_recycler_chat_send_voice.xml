@@ -1,6 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:paddingTop="15dp"
+    android:paddingBottom="10dp">
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/tvItemTimeChatSendVoice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/color_msg_system_time_bg"
+        android:textColor="@android:color/white"
+        android:padding="5dp"
+        tools:text="09:30" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="5dp">
+
+        <ImageView
+            android:id="@+id/ivItemPortraitChatSendVoice"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            tools:src="@mipmap/ic_launcher"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"/>
+
+        <LinearLayout
+            android:id="@+id/layoutItemVoiceChatSendVoice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:layout_toLeftOf="@+id/ivItemPortraitChatSendVoice"
+            android:background="@drawable/chat_right_qp"
+            android:minWidth="80dp"
+            android:minHeight="50dp"
+            android:gravity="center"
+            android:paddingBottom="5dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="15dp"
+            android:paddingTop="5dp"
+            android:paddingStart="5dp"
+            android:paddingEnd="15dp"
+            android:layout_toStartOf="@+id/ivItemPortraitChatSendVoice"
+            android:layout_marginEnd="5dp">
+
+            <ImageView
+                android:id="@+id/ivItemVoiceChatSendVoice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="fitCenter"
+                android:src="@mipmap/voice_left3" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvItemVoiceLengthChatSendVoice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textColor="@color/color_msg_system_time_bg"
+            tools:text="12s"
+            android:gravity="center"
+            android:layout_toLeftOf="@+id/layoutItemVoiceChatSendVoice"
+            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_toStartOf="@+id/layoutItemVoiceChatSendVoice" />
+
+        <ImageView
+            android:id="@+id/ivItemFailedChatSendVoice"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:background="@drawable/btn_chat_fail_resend"
+            android:layout_marginRight="10dp"
+            android:layout_toLeftOf="@+id/layoutItemVoiceChatSendVoice"
+            android:scaleType="fitCenter"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="10dp"
+            android:visibility="gone"
+            android:layout_toStartOf="@+id/layoutItemVoiceChatSendVoice" />
+
+        <TextView
+            android:id="@+id/tvItemStatusChatSendVoice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/layoutItemVoiceChatSendVoice"
+            android:layout_below="@+id/ivItemFailedChatSendVoice"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="10dp"
+            android:textColor="@color/color_chat_send_status"
+            android:textSize="12sp"
+            android:visibility="gone"
+            android:layout_marginEnd="10dp"
+            tools:text="failed send!"
+            android:layout_toStartOf="@+id/layoutItemVoiceChatSendVoice" />
+
+        <ProgressBar
+            android:id="@+id/progressItemLoadChanSendVoice"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/layoutItemVoiceChatSendVoice"
+            android:layout_marginRight="10dp"
+            android:visibility="gone"
+            android:layout_toStartOf="@+id/layoutItemVoiceChatSendVoice"
+            android:layout_marginEnd="10dp" />
+
+    </RelativeLayout>
+
+</LinearLayout>

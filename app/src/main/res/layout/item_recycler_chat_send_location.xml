@@ -1,6 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:paddingTop="15dp"
+    android:paddingBottom="10dp">
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/tvItemTimeChatSendLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/color_msg_system_time_bg"
+        android:textColor="@android:color/white"
+        android:padding="5dp"
+        tools:text="09:30" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="5dp">
+
+        <ImageView
+            android:id="@+id/ivItemPortraitChatSendLocation"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            tools:src="@mipmap/ic_launcher"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"/>
+
+        <LinearLayout
+            android:id="@+id/layoutItemChatSendLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:layout_toLeftOf="@+id/ivItemPortraitChatSendLocation"
+            android:background="@drawable/chat_right_qp"
+            android:minWidth="80dp"
+            android:minHeight="50dp"
+            android:gravity="center"
+            android:paddingBottom="5dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="25dp"
+            android:paddingTop="5dp"
+            android:paddingStart="5dp"
+            android:paddingEnd="25dp"
+            android:layout_toStartOf="@+id/ivItemPortraitChatSendLocation"
+            android:layout_marginEnd="5dp">
+
+            <TextView
+                android:id="@+id/ivItemVoiceChatSendLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_launcher_background"
+                android:gravity="center"
+                android:textColor="@android:color/white"/>
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/ivItemFailedChatSendLocation"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:background="@drawable/btn_chat_fail_resend"
+            android:layout_marginRight="10dp"
+            android:layout_toLeftOf="@+id/layoutItemChatSendLocation"
+            android:scaleType="fitCenter"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="10dp"
+            android:visibility="gone"
+            android:layout_toStartOf="@+id/layoutItemChatSendLocation" />
+
+        <TextView
+            android:id="@+id/tvItemStatusChatSendLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/layoutItemChatSendLocation"
+            android:layout_below="@+id/ivItemFailedChatSendLocation"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="10dp"
+            android:textColor="@color/color_chat_send_status"
+            android:textSize="12sp"
+            android:visibility="gone"
+            android:layout_marginEnd="10dp"
+            tools:text="failed send!"
+            android:layout_toStartOf="@+id/layoutItemChatSendLocation" />
+
+        <ProgressBar
+            android:id="@+id/progressItemLoadChanSendVoice"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/layoutItemChatSendLocation"
+            android:layout_marginRight="10dp"
+            android:layout_toStartOf="@+id/layoutItemChatSendLocation"
+            android:layout_marginEnd="10dp" />
+
+    </RelativeLayout>
+
+</LinearLayout>

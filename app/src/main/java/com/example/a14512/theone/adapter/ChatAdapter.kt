@@ -14,9 +14,12 @@ import cn.bmob.newim.bean.BmobIMMessageType
 import cn.bmob.v3.BmobUser
 import com.example.a14512.theone.R
 import kotlinx.android.synthetic.main.item_recycler_chat_agree.view.*
+import kotlinx.android.synthetic.main.item_recycler_chat_receive_img.view.*
 import kotlinx.android.synthetic.main.item_recycler_chat_receive_text.view.*
+import kotlinx.android.synthetic.main.item_recycler_chat_receive_voice.view.*
 import kotlinx.android.synthetic.main.item_recycler_chat_send_img.view.*
 import kotlinx.android.synthetic.main.item_recycler_chat_send_text.view.*
+import kotlinx.android.synthetic.main.item_recycler_chat_send_voice.view.*
 import java.util.*
 
 /**
@@ -238,15 +241,57 @@ class ChatAdapter : BaseAdapter<RecyclerView.ViewHolder>() {
     }
 
     class ReceiveImageHolder(itemView: View?) : RecyclerView.ViewHolder(itemView) {
+        private lateinit var tvTime: TextView
+        private lateinit var ivPortrait: ImageView
+        private lateinit var ivContent: ImageView
 
+        init {
+            if (itemView != null) {
+                tvTime = itemView.tvItemTimeChatReceiveImg
+                ivPortrait = itemView.ivItemPortraitChatReceiveImg
+                ivContent = itemView.tvItemContentChatReceiveImg
+            }
+        }
     }
 
     class SendVoiceHolder(itemView: View?) : RecyclerView.ViewHolder(itemView) {
+        lateinit var tvTime: TextView
+        lateinit var ivPortrait: ImageView
+        lateinit var ivVoice: ImageView
+        lateinit var tvLength: TextView
+        lateinit var ivFailed: ImageView
+        lateinit var tvStatus: TextView
+        lateinit var progress: ProgressBar
 
+        init {
+            if (itemView != null) {
+                tvTime = itemView.tvItemTimeChatSendVoice
+                ivPortrait = itemView.ivItemPortraitChatSendVoice
+                ivVoice = itemView.ivItemVoiceChatSendVoice
+                tvLength = itemView.tvItemVoiceLengthChatSendVoice
+                ivFailed = itemView.ivItemFailedChatSendVoice
+                tvStatus = itemView.tvItemStatusChatSendVoice
+                progress = itemView.progressItemLoadChanSendVoice
+            }
+        }
     }
 
     class ReceiveVoiceHolder(itemView: View?) : RecyclerView.ViewHolder(itemView) {
+        lateinit var tvTime: TextView
+        lateinit var ivPortrait: ImageView
+        lateinit var ivVoice: ImageView
+        lateinit var tvLength: TextView
+        lateinit var progrss: ProgressBar
 
+        init {
+            if (itemView != null) {
+                tvTime = itemView.tvItemTimeChatReceiveVoice
+                ivPortrait = itemView.ivItemPortraitChatReceiveVoice
+                ivVoice = itemView.ivItemVoiceChatReceiveVoice
+                tvLength = itemView.tvItemVoiceLengthChatReceiveVoice
+                progrss = itemView.progressItemLoadChanReceiveVoice
+            }
+        }
     }
 
     class SendVideoHolder(itemView: View?) : RecyclerView.ViewHolder(itemView) {

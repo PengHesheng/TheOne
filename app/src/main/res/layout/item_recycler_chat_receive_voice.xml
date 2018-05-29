@@ -1,6 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:paddingTop="15dp"
+    android:paddingBottom="10dp">
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/tvItemTimeChatReceiveVoice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/color_msg_system_time_bg"
+        android:textColor="@android:color/white"
+        android:padding="5dp"
+        tools:text="09:30" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="5dp">
+
+        <ImageView
+            android:id="@+id/ivItemPortraitChatReceiveVoice"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            tools:src="@mipmap/ic_launcher"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true" />
+
+        <LinearLayout
+            android:id="@+id/layoutItemVoiceChatReceiveVoice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/ivItemPortraitChatReceiveVoice"
+            android:background="@drawable/chat_left_qp"
+            android:minWidth="80dp"
+            android:minHeight="50dp"
+            android:gravity="center"
+            android:paddingBottom="5dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="5dp"
+            android:paddingTop="5dp"
+            android:paddingStart="15dp"
+            android:paddingEnd="5dp"
+            android:layout_toEndOf="@+id/ivItemPortraitChatReceiveVoice"
+            android:layout_marginStart="5dp">
+
+            <ImageView
+                android:id="@+id/ivItemVoiceChatReceiveVoice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="fitCenter"
+                android:src="@mipmap/voice_right3" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvItemVoiceLengthChatReceiveVoice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textColor="@color/color_msg_system_time_bg"
+            android:layout_toRightOf="@+id/layoutItemVoiceChatReceiveVoice"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@+id/layoutItemVoiceChatReceiveVoice"
+            tools:text="10s"/>
+
+        <ProgressBar
+            android:id="@+id/progressItemLoadChanReceiveVoice"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/layoutItemVoiceChatReceiveVoice"
+            android:layout_marginLeft="10dp"
+            android:visibility="gone"
+            android:layout_toEndOf="@+id/layoutItemVoiceChatReceiveVoice"
+            android:layout_marginStart="10dp" />
+
+    </RelativeLayout>
+
+</LinearLayout>
