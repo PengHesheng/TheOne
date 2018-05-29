@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/ivItemPortrait"
+        android:id="@+id/ivItemPortraitConversation"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginBottom="8dp"
@@ -19,35 +19,33 @@
         tools:src="@mipmap/ic_launcher_round" />
 
     <TextView
-        android:id="@+id/tvItemTime"
+        android:id="@+id/tvItemTimeConversation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         tools:text="09:20" />
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:orientation="vertical"
-        android:layout_marginBottom="5dp"
         android:layout_marginTop="5dp"
-        app:layout_constraintBottom_toBottomOf="@+id/ivItemPortrait"
-        app:layout_constraintEnd_toStartOf="@+id/tvItemTime"
-        app:layout_constraintStart_toEndOf="@+id/ivItemPortrait"
-        app:layout_constraintTop_toTopOf="@+id/ivItemPortrait">
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@+id/ivItemPortraitConversation"
+        app:layout_constraintEnd_toStartOf="@+id/tvItemTimeConversation"
+        app:layout_constraintStart_toEndOf="@+id/ivItemPortraitConversation"
+        app:layout_constraintTop_toTopOf="@+id/ivItemPortraitConversation">
 
         <TextView
-            android:id="@+id/tvItemUserName"
+            android:id="@+id/tvItemUserNameConversation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@android:color/background_dark"
@@ -55,11 +53,23 @@
             tools:text="你好像很美味诶" />
 
         <TextView
-            android:id="@+id/tvItemFirstMsg"
+            android:id="@+id/tvItemFirstMsgConversation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
             tools:text="我喜欢你" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvItemUnreadConversation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout"
+        tools:text="3" />
 
 </android.support.constraint.ConstraintLayout>

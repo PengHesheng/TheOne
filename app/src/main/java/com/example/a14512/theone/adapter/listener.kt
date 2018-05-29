@@ -8,7 +8,7 @@ import android.view.View
 interface BaseClickListener {
     fun onItemClick(view: View, position: Int)
 
-    fun onItemLongClick(view: View, position: Int)
+    fun onItemLongClick(view: View, position: Int) : Boolean
 }
 
 interface OnRecyclerItemClickListener: BaseClickListener {

@@ -138,7 +138,7 @@ object PLog {
         isExist(PATH)
         isDel()
         val needWriteMessage = ("\r\n"
-                + Time.getNowMDHMSTime()
+                + TimeUtil.getNowMDHMSTime()
                 + "\r\n"
                 + mylogtype
                 + "    "
@@ -160,7 +160,7 @@ object PLog {
     }
 
     private fun isDel() {
-        val date = Time.getNowYMD()
+        val date = TimeUtil.getNowYMD()
         if (!ACache.getDefault().getAsString(LOG_DATE).equals(date)) {
             delFile()
         }

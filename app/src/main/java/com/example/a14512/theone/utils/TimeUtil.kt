@@ -7,7 +7,7 @@ import java.util.*
 /**
  * @author 14512 on 2018/3/17
  */
-object Time {
+object TimeUtil {
 
     /**
      * yyyy-MM-dd HH:mm:ss

@@ -1,7 +1,5 @@
 package com.example.a14512.theone.model
 
-import android.content.Context
-import android.content.Intent
 import cn.bmob.newim.BmobIM
 import cn.bmob.newim.bean.*
 import cn.bmob.v3.BmobObject
@@ -146,14 +144,8 @@ class PrivateConversation(private var conversation: BmobIMConversation): Convers
         conversation.updateLocalCache()
     }
 
-    override fun onClick(context: Context) {
-//        ChatActivity().actionStart(context, "chat", conversation)
-    }
-
-    override fun onLongClick(context: Context) {
-        //会话：4.5、删除会话，以下两种方式均可以删除会话
-        //BmobIM.getInstance().deleteConversation(conversation.getConversationId());
-        BmobIM.getInstance().deleteConversation(conversation)
+    fun getConversation(): BmobIMConversation {
+        return conversation
     }
 
 }
@@ -204,14 +196,8 @@ class NewFriendConversation(friend: NewFriend): Conversation() {
         NewFriendManager.getInstance(TheOneApplication.getContext()).updateBatchStatus()
     }
 
-    override fun onClick(context: Context) {
-        val intent = Intent()
-//        intent.setClass(context, NewFriendActivity::class.java)
-        context.startActivity(intent)
-    }
-
-    override fun onLongClick(context: Context) {
-        NewFriendManager.getInstance(context).deleteNewFriend(lastFriend)
+    fun getLastFriend(): NewFriend {
+        return lastFriend
     }
 
 }

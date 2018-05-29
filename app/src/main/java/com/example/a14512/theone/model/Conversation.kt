@@ -1,6 +1,5 @@
 package com.example.a14512.theone.model
 
-import android.content.Context
 import cn.bmob.newim.bean.BmobIMConversationType
 import java.io.Serializable
 
@@ -49,18 +48,6 @@ abstract class Conversation : Serializable, Comparable<Any> {
      * 将所有消息标记为已读
      */
     abstract fun readAllMessage()
-
-    /**
-     * 点击事件
-     * @param context
-     */
-    abstract fun onClick(context: Context)
-
-    /**
-     * 长按事件
-     * @param context
-     */
-    abstract fun onLongClick(context: Context)
 
     fun getcName(): String {
         return cName

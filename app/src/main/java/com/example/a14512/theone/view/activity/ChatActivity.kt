@@ -1,5 +1,7 @@
 package com.example.a14512.theone.view.activity
 
+import android.content.Context
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.support.annotation.RequiresApi
@@ -8,6 +10,7 @@ import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.widget.*
+import cn.bmob.newim.bean.BmobIMConversation
 import com.example.a14512.theone.R
 import com.example.a14512.theone.base.BaseActivity
 import com.example.a14512.theone.utils.KeyBoradUtil
@@ -19,6 +22,12 @@ import kotlinx.android.synthetic.main.include_toolbar.*
  * @author 14512 on 2018/5/21
  */
 class ChatActivity : BaseActivity() {
+
+    fun actionStart(context: Context, conversation: BmobIMConversation) {
+        context.startActivity(Intent(context, ChatActivity::class.java)
+                .putExtra("conversation", conversation))
+    }
+
     private lateinit var mLayoutChat: LinearLayout
     private lateinit var mRecyclerView: RecyclerView
     private lateinit var mSwipe: SwipeRefreshLayout
@@ -55,6 +64,7 @@ class ChatActivity : BaseActivity() {
 
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chat)
