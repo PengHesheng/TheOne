@@ -27,6 +27,7 @@
         </android.support.v4.widget.SwipeRefreshLayout>
 
         <RelativeLayout
+            android:id="@+id/layoutRecordChat"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_gravity="center"
@@ -35,12 +36,14 @@
             android:visibility="invisible">
 
             <ImageView
+                android:id="@+id/ivSpeakRecordChat"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_centerHorizontal="true"
                 android:src="@android:drawable/ic_btn_speak_now" />
 
             <TextView
+                android:id="@+id/tvHintRecordChat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"

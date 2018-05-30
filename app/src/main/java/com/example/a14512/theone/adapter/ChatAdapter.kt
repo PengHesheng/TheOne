@@ -27,6 +27,7 @@ import kotlinx.android.synthetic.main.item_recycler_chat_send_location.view.*
 import kotlinx.android.synthetic.main.item_recycler_chat_send_text.view.*
 import kotlinx.android.synthetic.main.item_recycler_chat_send_voice.view.*
 import java.util.*
+import kotlin.collections.ArrayList
 
 /**
  * @author 14512 on 2018/5/29
@@ -40,22 +41,22 @@ class ChatAdapter : BaseAdapter<RecyclerView.ViewHolder>() {
     //显示时间间隔:10分钟
     private val TIME_INTERVAL = 10 * 60 * 1000
     //文本
-    private val TYPE_RECEIVER_TXT = 0
-    private val TYPE_SEND_TXT = 1
+    val TYPE_RECEIVER_TXT = 0
+    val TYPE_SEND_TXT = 1
     //图片
-    private val TYPE_SEND_IMAGE = 2
-    private val TYPE_RECEIVER_IMAGE = 3
+    val TYPE_SEND_IMAGE = 2
+    val TYPE_RECEIVER_IMAGE = 3
     //位置
-    private val TYPE_SEND_LOCATION = 4
-    private val TYPE_RECEIVER_LOCATION = 5
+    val TYPE_SEND_LOCATION = 4
+    val TYPE_RECEIVER_LOCATION = 5
     //语音
-    private val TYPE_SEND_VOICE = 6
-    private val TYPE_RECEIVER_VOICE = 7
+    val TYPE_SEND_VOICE = 6
+    val TYPE_RECEIVER_VOICE = 7
     //视频
-    private val TYPE_SEND_VIDEO = 8
-    private val TYPE_RECEIVER_VIDEO = 9
+    val TYPE_SEND_VIDEO = 8
+    val TYPE_RECEIVER_VIDEO = 9
     //同意添加好友成功后的样式
-    private val TYPE_AGREE = 10
+    val TYPE_AGREE = 10
 
     init {
         try {
@@ -82,6 +83,10 @@ class ChatAdapter : BaseAdapter<RecyclerView.ViewHolder>() {
     fun deleteMsg(position: Int) {
         mMsgs.removeAt(position)
         notifyDataSetChanged()
+    }
+
+    fun getMsgs(): ArrayList<BmobIMMessage> {
+        return mMsgs
     }
 
     fun findPosition(msg: BmobIMMessage): Int {
@@ -189,9 +194,9 @@ class ChatAdapter : BaseAdapter<RecyclerView.ViewHolder>() {
         holder.tvTime.visibility = if (shouldShowTime(position)) View.VISIBLE else View.GONE
         holder.tvTime.text = TimeUtil.getChatTime(msg.createTime)
         holder.tvContent.text = msg.content
-
     }
 
+    @SuppressLint("SetTextI18n")
     private fun bindReceiveVideo(holder: ReceiveVideoHolder, msg: BmobIMMessage, position: Int) {
         val info = msg.bmobIMUserInfo
         holder.tvTime.visibility = if (shouldShowTime(position)) View.VISIBLE else View.GONE

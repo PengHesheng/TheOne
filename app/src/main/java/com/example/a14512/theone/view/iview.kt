@@ -13,19 +13,19 @@ interface IBaseView {
 }
 
 interface ILoginView : IBaseView {
-    fun getAccount() : String
+    fun getAccount(): String
 
-    fun getPwd() : String
+    fun getPwd(): String
 
     fun setPortrait(portrait: String?)
 }
 
 interface IRegisterView : IBaseView {
-    fun getAccount() : String
+    fun getAccount(): String
 
-    fun getPwdAgain() : String
+    fun getPwdAgain(): String
 
-    fun getPwd() : String
+    fun getPwd(): String
 
     fun setErrorAccount(error: String)
 
@@ -54,10 +54,10 @@ interface ISettingsFragView : IBaseView {
 }
 
 interface IChatView : IBaseView {
-    fun setAdapter()
+
 }
 
 
 interface ISearchView : IBaseView {
-    fun getKeyStr() : String
+    fun getKeyStr(): String
 }
