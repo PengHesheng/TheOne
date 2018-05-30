@@ -54,12 +54,13 @@
             android:layout_marginEnd="5dp">
 
             <TextView
-                android:id="@+id/ivItemVoiceChatSendLocation"
+                android:id="@+id/tvItemLocationChatSendLocation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/ic_launcher_background"
-                android:gravity="center"
-                android:textColor="@android:color/white"/>
+                android:gravity="bottom|center_horizontal"
+                android:textColor="@android:color/white"
+                tools:text="location"/>
 
         </LinearLayout>
 
@@ -92,7 +93,7 @@
             android:layout_toStartOf="@+id/layoutItemChatSendLocation" />
 
         <ProgressBar
-            android:id="@+id/progressItemLoadChanSendVoice"
+            android:id="@+id/progressItemLoadChanSendLocation"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_centerVertical="true"

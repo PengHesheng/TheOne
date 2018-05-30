@@ -14,3 +14,15 @@ interface BaseClickListener {
 interface OnRecyclerItemClickListener: BaseClickListener {
 
 }
+
+interface OnRecyclerChatItemClickListener: BaseClickListener {
+    fun onPortraitClick(portrait: View, position: Int)
+
+    fun onPortraitLongClick(view: View, position: Int): Boolean
+
+    fun onResendClick(view1: View, view2: View, view3: View, position: Int)
+
+    fun onContentClick(view: View, position: Int)
+
+    fun onContentLongClick(view: View, position: Int): Boolean
+}
