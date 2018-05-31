@@ -17,15 +17,15 @@ import cn.bmob.v3.exception.BmobException
 import com.bumptech.glide.Glide
 import com.example.a14512.theone.R
 import com.example.a14512.theone.utils.TimeUtil
-import kotlinx.android.synthetic.main.item_recycler_chat_agree.view.*
-import kotlinx.android.synthetic.main.item_recycler_chat_receive_img.view.*
-import kotlinx.android.synthetic.main.item_recycler_chat_receive_location.view.*
-import kotlinx.android.synthetic.main.item_recycler_chat_receive_text.view.*
-import kotlinx.android.synthetic.main.item_recycler_chat_receive_voice.view.*
-import kotlinx.android.synthetic.main.item_recycler_chat_send_img.view.*
-import kotlinx.android.synthetic.main.item_recycler_chat_send_location.view.*
-import kotlinx.android.synthetic.main.item_recycler_chat_send_text.view.*
-import kotlinx.android.synthetic.main.item_recycler_chat_send_voice.view.*
+import kotlinx.android.synthetic.main.item_chat_agree_recycler.view.*
+import kotlinx.android.synthetic.main.item_chat_receive_img_recycler.view.*
+import kotlinx.android.synthetic.main.item_chat_receive_location_recycler.view.*
+import kotlinx.android.synthetic.main.item_chat_receive_text_recycler.view.*
+import kotlinx.android.synthetic.main.item_chat_receive_voice_recycler.view.*
+import kotlinx.android.synthetic.main.item_chat_send_img_recycler.view.*
+import kotlinx.android.synthetic.main.item_chat_send_location_recycler.view.*
+import kotlinx.android.synthetic.main.item_chat_send_text_recycler.view.*
+import kotlinx.android.synthetic.main.item_chat_send_voice_recycler.view.*
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -123,27 +123,27 @@ class ChatAdapter : BaseAdapter<RecyclerView.ViewHolder>() {
         mContext = parent.context
         return when(viewType) {
             TYPE_SEND_TXT -> SendTextHolder(LayoutInflater.from(mContext)
-                    .inflate(R.layout.item_recycler_chat_send_text, parent, false))
+                    .inflate(R.layout.item_chat_send_text_recycler, parent, false))
             TYPE_RECEIVER_TXT -> ReceiveTextHolder(LayoutInflater.from(mContext)
-                    .inflate(R.layout.item_recycler_chat_receive_text, parent, false))
+                    .inflate(R.layout.item_chat_receive_text_recycler, parent, false))
             TYPE_SEND_IMAGE -> SendImageHolder(LayoutInflater.from(mContext)
-                    .inflate(R.layout.item_recycler_chat_send_img, parent, false))
+                    .inflate(R.layout.item_chat_send_img_recycler, parent, false))
             TYPE_RECEIVER_IMAGE -> ReceiveImageHolder(LayoutInflater.from(mContext)
-                    .inflate(R.layout.item_recycler_chat_receive_img, parent, false))
+                    .inflate(R.layout.item_chat_receive_img_recycler, parent, false))
             TYPE_SEND_VOICE -> SendVoiceHolder(LayoutInflater.from(mContext)
-                    .inflate(R.layout.item_recycler_chat_send_voice, parent, false))
+                    .inflate(R.layout.item_chat_send_voice_recycler, parent, false))
             TYPE_RECEIVER_VOICE -> ReceiveVoiceHolder(LayoutInflater.from(mContext)
-                    .inflate(R.layout.item_recycler_chat_receive_voice, parent, false))
+                    .inflate(R.layout.item_chat_receive_voice_recycler, parent, false))
             TYPE_SEND_LOCATION -> SendLocationHolder(LayoutInflater.from(mContext)
-                    .inflate(R.layout.item_recycler_chat_send_location, parent, false))
+                    .inflate(R.layout.item_chat_send_location_recycler, parent, false))
             TYPE_RECEIVER_LOCATION -> ReceiveLocationHolder(LayoutInflater.from(mContext)
-                    .inflate(R.layout.item_recycler_chat_receive_location, parent, false))
+                    .inflate(R.layout.item_chat_receive_location_recycler, parent, false))
             TYPE_SEND_VIDEO -> SendVideoHolder(LayoutInflater.from(mContext)
-                    .inflate(R.layout.item_recycler_chat_send_text, parent, false))
+                    .inflate(R.layout.item_chat_send_text_recycler, parent, false))
             TYPE_RECEIVER_VIDEO -> ReceiveVideoHolder(LayoutInflater.from(mContext)
-                    .inflate(R.layout.item_recycler_chat_receive_text, parent, false))
+                    .inflate(R.layout.item_chat_receive_text_recycler, parent, false))
             else -> AgreeHolder(LayoutInflater.from(mContext)
-                    .inflate(R.layout.item_recycler_chat_agree, parent, false))
+                    .inflate(R.layout.item_chat_agree_recycler, parent, false))
         }
     }
 

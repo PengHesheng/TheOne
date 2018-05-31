@@ -1,5 +1,7 @@
 package com.example.a14512.theone.presenter
 
+import cn.bmob.newim.bean.BmobIMUserInfo
+
 /**
  * @author 14512 on 2018/5/27
  */
@@ -24,9 +26,15 @@ interface IChatPresenter {
 }
 
 interface ISearchPresenter {
-    fun search()
+    fun search(keyString: String)
+
+    fun sendAddFriendMsg(info: BmobIMUserInfo)
 }
 
 interface ISettingsFragPresenter {
     fun getUserInfo()
+}
+
+interface IUserInfoPresenter {
+    fun sendAddFriendMsg(info: BmobIMUserInfo)
 }

@@ -115,13 +115,13 @@ class ChatActivity : BaseActivity(), IChatView, MessageListHandler {
         val toolbar = toolbar
         val title = tvToolbarTitle
         mIvBack = ivToolbarLeft
-        mIBtnVoice = btnChatVoice
-        mBtnSpeak = btnChatSpeak
+        mIBtnVoice = btnVoiceChat
+        mBtnSpeak = btnSpeakChat
         mEtContent = etChat
-        mBtnFace = btnChatLaughFace
-        mBtnAdd = btnChatAdd
-        mBtnSend = btnChatSend
-        mLayoutBottom = layoutChatBottom
+        mBtnFace = btnLaughFaceChat
+        mBtnAdd = btnAddChat
+        mBtnSend = btnSendChat
+        mLayoutBottom = layoutBottomChat
         mViewPager = viewPagerChat
 
         setSupportActionBar(toolbar)

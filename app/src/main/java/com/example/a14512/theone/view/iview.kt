@@ -2,6 +2,7 @@ package com.example.a14512.theone.view
 
 import com.example.a14512.theone.model.Conversation
 import com.example.a14512.theone.model.Friend
+import com.example.a14512.theone.model.User
 
 /**
  * @author 14512 on 2018/5/27
@@ -57,7 +58,8 @@ interface IChatView : IBaseView {
 
 }
 
-
 interface ISearchView : IBaseView {
-    fun getKeyStr(): String
+    fun setAdapter(users: ArrayList<User>)
 }
+
+interface IUserInfoView : IBaseView

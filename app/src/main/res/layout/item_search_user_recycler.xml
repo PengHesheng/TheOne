@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp">
+
+    <ImageView
+        android:id="@+id/ivPortraitSearch"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="16dp"
+        tools:src="@drawable/ic_launcher_background"
+        android:layout_marginStart="16dp" />
+
+    <TextView
+        android:id="@+id/tvNameSearch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/ivPortraitSearch"
+        android:layout_marginLeft="10dp"
+        tools:text="name"
+        android:textSize="20sp"
+        android:layout_toEndOf="@+id/ivPortraitSearch"
+        android:layout_marginStart="10dp" />
+
+    <Button
+        android:id="@+id/btnAddSearch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_add"
+        android:textColor="@android:color/white"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="16dp"
+        android:textSize="18sp"
+        android:background="@drawable/bmob_update_button_ok_bg_selector"
+        android:layout_marginEnd="16dp"
+        android:layout_alignParentEnd="true" />
+
+</RelativeLayout>

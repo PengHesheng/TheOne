@@ -12,7 +12,7 @@ interface BaseClickListener {
 }
 
 interface OnRecyclerItemClickListener: BaseClickListener {
-
+    fun onChildViewClick(view: View, position: Int)
 }
 
 interface OnRecyclerChatItemClickListener: BaseClickListener {

@@ -13,7 +13,7 @@
        android:paddingRight="5dp">
 
        <ImageButton
-           android:id="@+id/btnChatVoice"
+           android:id="@+id/btnVoiceChat"
            android:layout_width="30dp"
            android:layout_height="30dp"
            android:layout_centerVertical="true"
@@ -26,27 +26,27 @@
            android:layout_centerInParent="true"
            android:layout_marginLeft="5dp"
            android:layout_marginRight="5dp"
-           android:layout_toRightOf="@+id/btnChatVoice"
-           android:layout_toEndOf="@+id/btnChatVoice"
-           android:layout_toLeftOf="@+id/layoutChatBottomRight"
-           android:layout_toStartOf="@+id/layoutChatBottomRight" />
+           android:layout_toRightOf="@+id/btnVoiceChat"
+           android:layout_toEndOf="@+id/btnVoiceChat"
+           android:layout_toLeftOf="@+id/layoutBottomRightChat"
+           android:layout_toStartOf="@+id/layoutBottomRightChat" />
 
        <Button
-           android:id="@+id/btnChatSpeak"
+           android:id="@+id/btnSpeakChat"
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
            android:visibility="gone"
            android:layout_centerInParent="true"
            android:layout_marginLeft="5dp"
            android:layout_marginRight="5dp"
-           android:layout_toRightOf="@+id/btnChatVoice"
-           android:layout_toEndOf="@+id/btnChatVoice"
-           android:layout_toLeftOf="@+id/layoutChatBottomRight"
-           android:layout_toStartOf="@+id/layoutChatBottomRight"
+           android:layout_toRightOf="@+id/btnVoiceChat"
+           android:layout_toEndOf="@+id/btnVoiceChat"
+           android:layout_toLeftOf="@+id/layoutBottomRightChat"
+           android:layout_toStartOf="@+id/layoutBottomRightChat"
            android:text="@string/btn_down_speak"/>
 
        <LinearLayout
-           android:id="@+id/layoutChatBottomRight"
+           android:id="@+id/layoutBottomRightChat"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
            android:layout_centerVertical="true"
@@ -55,13 +55,13 @@
            android:gravity="center_vertical">
 
            <Button
-               android:id="@+id/btnChatLaughFace"
+               android:id="@+id/btnLaughFaceChat"
                android:layout_width="30dp"
                android:layout_height="30dp"
                android:background="@mipmap/laugh_face"/>
 
            <Button
-               android:id="@+id/btnChatAdd"
+               android:id="@+id/btnAddChat"
                android:layout_width="30dp"
                android:layout_height="30dp"
                android:layout_marginLeft="5dp"
@@ -69,7 +69,7 @@
                android:layout_marginStart="5dp" />
 
            <Button
-               android:id="@+id/btnChatSend"
+               android:id="@+id/btnSendChat"
                android:layout_width="45dp"
                android:layout_height="wrap_content"
                android:textSize="10sp"
@@ -87,7 +87,7 @@
         android:background="@android:drawable/divider_horizontal_textfield"/>
 
     <LinearLayout
-        android:id="@+id/layoutChatBottom"
+        android:id="@+id/layoutBottomChat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:visibility="gone"
@@ -99,7 +99,7 @@
             android:layout_height="wrap_content"/>
 
         <LinearLayout
-            android:id="@+id/layoutChatPoint"
+            android:id="@+id/layoutPointChat"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="#4b4b4b"

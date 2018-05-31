@@ -22,6 +22,7 @@ import com.example.a14512.theone.utils.PLog
 import com.example.a14512.theone.view.IConversationView
 import com.example.a14512.theone.view.activity.ChatActivity
 import kotlinx.android.synthetic.main.fragment_conversation.*
+import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 
 /**
@@ -73,6 +74,10 @@ class ConversationFragment: BaseFragment(), IConversationView {
     private fun setClickListener() {
         mSwipe.setOnRefreshListener { mPresenter.getConversation() }
         mAdapter.setOnItemClickListener(object : OnRecyclerItemClickListener {
+            override fun onChildViewClick(view: View, position: Int) {
+
+            }
+
             override fun onItemClick(view: View, position: Int) {
                 val conversation = mConversations[position] as BmobIMConversation
                 ChatActivity().actionStart(context!!, conversation)
@@ -114,4 +119,15 @@ class ConversationFragment: BaseFragment(), IConversationView {
         //重新获取本地消息并刷新列表
         mPresenter.getConversation()
     }
+
+    override fun onStart() {
+        super.onStart()
+        EventBus.getDefault().register(this)
+    }
+
+    override fun onStop() {
+        EventBus.getDefault().unregister(this)
+        super.onStop()
+    }
+
 }
