@@ -14,7 +14,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1.0">
+        android:layout_weight="9.0">
 
         <android.support.v4.widget.SwipeRefreshLayout
             android:id="@+id/chatSwipe"
@@ -52,5 +52,5 @@
         </RelativeLayout>
     </FrameLayout>
 
-    <include layout="@layout/include_chat_bottom_key_broad" />
+    <include layout="@layout/include_chat_bottom_key_broad"/>
 </LinearLayout>

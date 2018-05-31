@@ -47,7 +47,6 @@ class SearchActivity : BaseActivity(), ISearchView {
         layoutManager.orientation = LinearLayoutManager.VERTICAL
         mRecyclerView.layoutManager = layoutManager
         mAdapter = SearchUserAdapter()
-        mAdapter.setUsers(mUsers)
         mRecyclerView.adapter = mAdapter
         mPresenter = SearchPresenterImp(this, this)
         mIvBack.setOnClickListener { finish() }
@@ -96,8 +95,8 @@ class SearchActivity : BaseActivity(), ISearchView {
             mTvNoData.visibility = View.GONE
             mGridView.visibility = View.GONE
             mRecyclerView.visibility = View.VISIBLE
-//            mAdapter.setUsers(users)
             mUsers = users
+            mAdapter.setUsers(mUsers)
         } else {
             mTvNoData.visibility = View.VISIBLE
             mTvNoData.text = "找不到结果"

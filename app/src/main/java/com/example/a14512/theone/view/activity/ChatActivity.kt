@@ -282,39 +282,36 @@ class ChatActivity : BaseActivity(), IChatView, MessageListHandler {
                 mEtContent.visibility = View.GONE
                 mBtnSpeak.visibility = View.VISIBLE
                 isVoiceClicked = false
+                KeyBoradUtil.hideInputFromWindow(this, mLayoutChat)
             } else {
                 mIBtnVoice.setImageResource(android.R.drawable.ic_btn_speak_now)
                 mEtContent.visibility = View.VISIBLE
-                mEtContent.focusable = View.FOCUSABLE
                 mBtnSpeak.visibility = View.GONE
+                KeyBoradUtil.showSoftInputFromWindow(this, mEtContent)
                 isVoiceClicked = true
             }
         }
 
         mBtnFace.setOnClickListener {
             if (isFaceClicked) {
-                if (mLayoutBottom.visibility != View.VISIBLE) {
-                    mLayoutBottom.visibility = View.VISIBLE
-                }
+                mLayoutBottom.visibility = View.VISIBLE
                 KeyBoradUtil.hideSoftInputFromWindow(this, mEtContent)
                 isFaceClicked = false
             } else {
                 mLayoutBottom.visibility = View.GONE
-                mEtContent.focusable = View.FOCUSABLE
+                KeyBoradUtil.showSoftInputFromWindow(this, mEtContent)
                 isFaceClicked = true
             }
         }
 
         mBtnAdd.setOnClickListener {
             if (isAddClicked) {
-                if (mLayoutBottom.visibility != View.VISIBLE) {
-                    mLayoutBottom.visibility = View.VISIBLE
-                }
+                mLayoutBottom.visibility = View.VISIBLE
                 KeyBoradUtil.hideSoftInputFromWindow(this, mEtContent)
                 isAddClicked = false
             } else {
                 mLayoutBottom.visibility = View.GONE
-                mEtContent.focusable = View.FOCUSABLE
+                KeyBoradUtil.showSoftInputFromWindow(this, mEtContent)
                 isAddClicked = true
             }
         }

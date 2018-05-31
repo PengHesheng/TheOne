@@ -14,7 +14,7 @@ class SettingsFragPresenterImp(private val mContext: Context,
         val user = UserModel.getInstance().getCurrentUser()
         mView.setId(user.objectId)
         mView.setName(user.username)
-        mView.setPortrait(user.getAvatar()!!)
+        mView.setPortrait(user.getAvatar())
         mView.setQRCode("")
     }
 }

@@ -41,7 +41,7 @@ dependencies {
     implementation 'cn.bmob.android:bmob-im:2.0.9@aar'
     implementation 'cn.bmob.android:bmob-sdk:3.5.6'
     //网络请求 + RxJava
-    //    implementation 'com.squareup.okhttp:okhttp:2.0.0'
+//        implementation 'com.squareup.okhttp:okhttp:2.0.0'
     //    implementation 'com.google.code.gson:gson:2.8.0'
     //    implementation 'io.reactivex.rxjava2:rxjava:2.1.0'
     //    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
@@ -49,13 +49,14 @@ dependencies {
     //    implementation 'com.squareup.retrofit2:converter-jackson:2.1.0'
     //    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
     //    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
-    //    implementation 'com.squareup.okhttp3:okhttp:3.9.0'
-    //    implementation 'com.squareup.okhttp3:logging-interceptor:3.9.0'
+//    implementation 'com.squareup.okhttp3:okhttp:3.9.0'
+//    implementation 'com.squareup.okhttp3:logging-interceptor:3.9.0'
     implementation 'org.greenrobot:eventbus:3.0.0'
     //内存管理
     //图片加载
     implementation 'com.github.bumptech.glide:glide:3.8.0'
-    implementation 'com.github.bumptech.glide:okhttp3-integration:1.4.0@aar'
+    //无法使用网络加载
+//    implementation 'com.github.bumptech.glide:okhttp3-integration:1.4.0@aar'
     implementation 'jp.wasabeef:glide-transformations:2.0.2'
     implementation 'com.readystatesoftware.systembartint:systembartint:1.0.3'
     //noinspection GradleCompatible

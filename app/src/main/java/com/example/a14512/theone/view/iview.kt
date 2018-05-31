@@ -45,7 +45,7 @@ interface IContactView : IBaseView {
 }
 
 interface ISettingsFragView : IBaseView {
-    fun setPortrait(portrait: String)
+    fun setPortrait(portrait: String?)
 
     fun setName(name: String)
 

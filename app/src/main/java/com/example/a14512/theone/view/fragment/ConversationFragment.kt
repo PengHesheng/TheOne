@@ -46,6 +46,7 @@ class ConversationFragment: BaseFragment(), IConversationView {
     override fun setAdapter(conversations: ArrayList<Conversation>) {
         mSwipe.isRefreshing = false
         mConversations = conversations
+        mAdapter.setConversations(mConversations)
     }
 
     override fun addConversations(conversations: ArrayList<Conversation>) {
@@ -61,7 +62,6 @@ class ConversationFragment: BaseFragment(), IConversationView {
         mRecyclerView = conversationRecycler
 
         mAdapter = ConversationAdapter()
-        mAdapter.setConversations(mConversations)
         mPresenter = ConversationPresenterImp(context!!, this)
         val layoutManager = LinearLayoutManager(context)
         layoutManager.orientation = LinearLayoutManager.VERTICAL

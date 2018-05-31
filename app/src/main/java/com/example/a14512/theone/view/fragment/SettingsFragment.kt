@@ -8,9 +8,11 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import android.widget.TextView
+import cn.bmob.newim.bean.BmobIMUserInfo
 import com.bumptech.glide.Glide
 import com.example.a14512.theone.R
 import com.example.a14512.theone.base.BaseFragment
+import com.example.a14512.theone.model.UserModel
 import com.example.a14512.theone.presenter.ISettingsFragPresenter
 import com.example.a14512.theone.presenter.SettingsFragPresenterImp
 import com.example.a14512.theone.utils.ToastUtil
@@ -47,7 +49,11 @@ class SettingsFragment: BaseFragment(), ISettingsFragView {
         mPresenter = SettingsFragPresenterImp(context!!, this)
         mPresenter.getUserInfo()
 
-        mLayoutUser.setOnClickListener { startActivity(context!!, UserInfoActivity::class.java) }
+        mLayoutUser.setOnClickListener {
+            val user = UserModel.getInstance().getCurrentUser()
+            val info = BmobIMUserInfo(user.objectId, user.username, user.getAvatar())
+            UserInfoActivity().actionStart(context!!, info)
+        }
     }
 
     override fun startActivity() {
@@ -58,8 +64,8 @@ class SettingsFragment: BaseFragment(), ISettingsFragView {
         ToastUtil.show(context!!, msg)
     }
 
-    override fun setPortrait(portrait: String) {
-        Glide.with(context).load(portrait).error(R.mipmap.ic_launcher_round).into(mIvPortrait)
+    override fun setPortrait(portrait: String?) {
+        Glide.with(context).load(portrait ?: "").error(R.mipmap.ic_launcher_round).into(mIvPortrait)
     }
 
     override fun setName(name: String) {
