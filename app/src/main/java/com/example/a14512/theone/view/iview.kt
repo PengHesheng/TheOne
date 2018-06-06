@@ -2,6 +2,7 @@ package com.example.a14512.theone.view
 
 import com.example.a14512.theone.model.Conversation
 import com.example.a14512.theone.model.Friend
+import com.example.a14512.theone.model.NewFriend
 import com.example.a14512.theone.model.User
 
 /**
@@ -63,3 +64,7 @@ interface ISearchView : IBaseView {
 }
 
 interface IUserInfoView : IBaseView
+
+interface INewFriendView : IBaseView {
+    fun setAdapter(newFriends: ArrayList<NewFriend>)
+}

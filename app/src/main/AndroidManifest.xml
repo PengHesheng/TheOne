@@ -50,6 +50,7 @@
         <activity android:name=".view.activity.UserInfoActivity"/>
         <activity android:name=".view.activity.LoginActivity"/>
         <activity android:name=".view.activity.RegisterActivity"/>
+        <activity android:name=".view.activity.NewFriendActivity" />
 
         <!-- 集成：1.3、配置Bmob平台的应用密钥 -->
         <meta-data
