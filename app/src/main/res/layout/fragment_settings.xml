@@ -84,6 +84,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/layoutStudySettings"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
@@ -103,7 +104,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
-            android:text="@string/tv_face_laugh"
+            android:text="@string/tv_study"
             android:layout_marginStart="16dp" />
 
     </LinearLayout>

@@ -1,6 +1,7 @@
 package com.example.a14512.theone.presenter
 
 import cn.bmob.newim.bean.BmobIMUserInfo
+import com.example.a14512.theone.model.NewFriend
 
 /**
  * @author 14512 on 2018/5/27
@@ -37,4 +38,14 @@ interface ISettingsFragPresenter {
 
 interface IUserInfoPresenter {
     fun sendAddFriendMsg(info: BmobIMUserInfo)
+}
+
+interface INewFriendPresenter {
+    fun getAllNewFriend()
+
+    fun agreeNewFriend(newFriend: NewFriend)
+
+    fun deleteNewMsg(newFriend: NewFriend)
+
+    fun rejectNewFriend(newFriend: NewFriend)
 }

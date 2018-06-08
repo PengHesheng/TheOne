@@ -8,14 +8,14 @@ import android.view.View
 interface BaseClickListener {
     fun onItemClick(view: View, position: Int)
 
-    fun onItemLongClick(view: View, position: Int) : Boolean
+    fun onItemLongClick(view: View, position: Int): Boolean
 }
 
-interface OnRecyclerItemClickListener: BaseClickListener {
+interface OnRecyclerItemClickListener : BaseClickListener {
     fun onChildViewClick(view: View, position: Int)
 }
 
-interface OnRecyclerChatItemClickListener: BaseClickListener {
+interface OnRecyclerChatItemClickListener : BaseClickListener {
     fun onPortraitClick(portrait: View, position: Int)
 
     fun onPortraitLongClick(view: View, position: Int): Boolean

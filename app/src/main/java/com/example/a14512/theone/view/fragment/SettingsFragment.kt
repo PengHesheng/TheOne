@@ -17,6 +17,7 @@ import com.example.a14512.theone.presenter.ISettingsFragPresenter
 import com.example.a14512.theone.presenter.SettingsFragPresenterImp
 import com.example.a14512.theone.utils.ToastUtil
 import com.example.a14512.theone.view.ISettingsFragView
+import com.example.a14512.theone.view.activity.StudyActivity
 import com.example.a14512.theone.view.activity.UserInfoActivity
 import kotlinx.android.synthetic.main.fragment_settings.*
 
@@ -30,6 +31,7 @@ class SettingsFragment: BaseFragment(), ISettingsFragView {
     private lateinit var mTvName: TextView
     private lateinit var mTvId: TextView
     private lateinit var mIvQRCode: ImageView
+    private lateinit var mLayoutStudy: LinearLayout
     private lateinit var mLayoutSettings: LinearLayout
     private lateinit var mPresenter: ISettingsFragPresenter
 
@@ -43,6 +45,7 @@ class SettingsFragment: BaseFragment(), ISettingsFragView {
         mTvName = tvNameSettings
         mTvId = tvIdSettings
         mIvQRCode = ivQRCodeSettings
+        mLayoutStudy = layoutStudySettings
         mLayoutSettings = layoutSettings
 
         mPresenter = SettingsFragPresenterImp(context!!, this)
@@ -52,6 +55,9 @@ class SettingsFragment: BaseFragment(), ISettingsFragView {
             val user = UserModel.getInstance().getCurrentUser()
             val info = BmobIMUserInfo(user.objectId, user.username, user.getAvatar())
             UserInfoActivity().actionStart(context!!, info)
+        }
+        mLayoutStudy.setOnClickListener {
+            startActivity(context!!, StudyActivity::class.java)
         }
     }
 

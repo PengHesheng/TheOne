@@ -47,9 +47,9 @@
         <activity android:name=".view.activity.MainActivity" />
         <activity android:name=".view.activity.SearchActivity" />
         <activity android:name=".view.activity.ChatActivity" />
-        <activity android:name=".view.activity.UserInfoActivity"/>
-        <activity android:name=".view.activity.LoginActivity"/>
-        <activity android:name=".view.activity.RegisterActivity"/>
+        <activity android:name=".view.activity.UserInfoActivity" />
+        <activity android:name=".view.activity.LoginActivity" />
+        <activity android:name=".view.activity.RegisterActivity" />
         <activity android:name=".view.activity.NewFriendActivity" />
 
         <!-- 集成：1.3、配置Bmob平台的应用密钥 -->
@@ -78,6 +78,7 @@
         <service android:name="cn.bmob.newim.core.service.ReConnectService" />
         <service android:name="cn.bmob.newim.core.service.HeartBeatService" />
 
+        <activity android:name=".view.activity.StudyActivity"></activity>
     </application>
 
 </manifest>
