@@ -5,8 +5,8 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
-import android.widget.Spinner
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.example.a14512.theone.R
@@ -21,7 +21,7 @@ import kotlinx.android.synthetic.main.item_new_friend_recycler.view.*
  */
 class NewFriendAdapter : BaseAdapter<RecyclerView.ViewHolder>() {
     private lateinit var mContext: Context
-    private lateinit var mListener: BaseClickListener
+    private lateinit var mListener: OnRecyclerItemClickListener
     private var mNewFriends: ArrayList<NewFriend> = ArrayList()
 
     fun setNewFriends(newFriends: ArrayList<NewFriend>) {
@@ -49,7 +49,7 @@ class NewFriendAdapter : BaseAdapter<RecyclerView.ViewHolder>() {
     }
 
     override fun setOnItemClickListener(listener: BaseClickListener) {
-        mListener = listener
+        mListener = listener as OnRecyclerItemClickListener
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -73,6 +73,13 @@ class NewFriendAdapter : BaseAdapter<RecyclerView.ViewHolder>() {
             val status = friend.status
             if (status == null || status == STATUS_VERIFY_NONE
                     || status == STATUS_VERIFY_READED || mListener != null) {
+                holder.btnAgree.setOnClickListener {
+                    mListener.onChildViewClick(it, position)
+                    holder.tvHint.text = "已添加"
+                    holder.tvHint.visibility = View.VISIBLE
+                    it.visibility = View.GONE
+                }
+
                 holder.itemView.setOnClickListener {
                     mListener.onItemClick(it, position)
                 }
@@ -83,7 +90,7 @@ class NewFriendAdapter : BaseAdapter<RecyclerView.ViewHolder>() {
             } else {
                 holder.tvHint.text =  "已添加"
                 holder.tvHint.visibility = View.VISIBLE
-                holder.spinner.visibility = View.GONE
+                holder.btnAgree.visibility = View.GONE
             }
         }
     }
@@ -92,14 +99,14 @@ class NewFriendAdapter : BaseAdapter<RecyclerView.ViewHolder>() {
         lateinit var ivPortrait: ImageView
         lateinit var tvName: TextView
         lateinit var tvHint: TextView
-        lateinit var spinner: Spinner
+        lateinit var btnAgree: Button
 
         init {
             if (itemView != null) {
                 ivPortrait = itemView.ivItemPortraitNewFriend
                 tvName = itemView.tvItemNameNewFriend
                 tvHint = itemView.tvItemHintNewFriend
-                spinner = itemView.spinnerItemNewFriend
+                btnAgree = itemView.btnItemNewFriend
             }
         }
     }

@@ -43,19 +43,15 @@
         tools:text="接受"
         android:layout_marginEnd="16dp" />
 
-    <LinearLayout
+    <Button
+        android:id="@+id/btnItemNewFriend"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#dddddd"
-        android:layout_centerVertical="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true">
-
-        <Spinner
-            android:id="@+id/spinnerItemNewFriend"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:entries="@array/agree_or_reject"/>
-    </LinearLayout>
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/btn_bg_selector"
+        android:textColor="@android:color/white"
+        android:text="@string/tv_agree"/>
 
 </RelativeLayout>

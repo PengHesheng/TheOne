@@ -44,6 +44,7 @@ class NewFriendPresenterImp(private val mContext: Context,
                 if (p1 == null) {
                     sendAgreeAddMsg(newFriend, content, status)
                 } else {
+                    PLog.e(p1.message.toString())
                     mView.toastMsg(p1.message.toString())
                 }
             }
