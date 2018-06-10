@@ -14,8 +14,6 @@ import com.example.a14512.theone.view.ILoginView
 class LoginPresenterImp(private val mContext: Context, private val mView: ILoginView) : ILoginPresenter {
 
     override fun login() {
-        val portrait = ACache.getDefault().getAsString("portrait")
-        mView.setPortrait(portrait)
         val account = mView.getAccount()
         val pwd = mView.getPwd()
         if (account.isEmpty() || pwd.isEmpty()) {
@@ -27,11 +25,15 @@ class LoginPresenterImp(private val mContext: Context, private val mView: ILogin
                     mView.toastMsg("登录成功")
                     ACache.getDefault().put("portrait", p0.getAvatar())
                     mView.startActivity()
-
                 } else if (p1 != null){
                     mView.toastMsg(p1.message + "(" + p1.errorCode + ")")
                 }
             }
         })
+    }
+
+    override fun getPortrait() {
+        val portrait = ACache.getDefault().getAsString("portrait")
+        mView.setPortrait(portrait)
     }
 }

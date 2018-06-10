@@ -26,6 +26,10 @@ class SearchUserAdapter : BaseAdapter<RecyclerView.ViewHolder>() {
         notifyDataSetChanged()
     }
 
+    fun getUser(position: Int): User {
+        return mUsers[position]
+    }
+
     override fun setOnItemClickListener(listener: BaseClickListener) {
         mListener = listener as OnRecyclerItemClickListener
     }
@@ -42,7 +46,9 @@ class SearchUserAdapter : BaseAdapter<RecyclerView.ViewHolder>() {
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if (holder is SearchUserHolder) {
             val user = mUsers[position]
-            Glide.with(mContext).load(user.getAvatar()).error(R.mipmap.ic_launcher_round).into(holder.ivPortrait)
+            Glide.with(mContext).load(user.getAvatar())
+                    .error(Glide.with(mContext).load(R.mipmap.default_portrait))
+                    .into(holder.ivPortrait)
             holder.tvName.text = user.username
             if (mListener != null) {
                 holder.btnAdd.setOnClickListener {

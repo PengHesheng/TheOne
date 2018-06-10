@@ -9,6 +9,7 @@ import com.example.a14512.theone.R
 import com.example.a14512.theone.base.BaseActivity
 import com.example.a14512.theone.presenter.LoginPresenterImp
 import com.example.a14512.theone.utils.KeyBoradUtil
+import com.example.a14512.theone.utils.PLog
 import com.example.a14512.theone.utils.ToastUtil
 import com.example.a14512.theone.view.ILoginView
 import kotlinx.android.synthetic.main.activity_login.*
@@ -41,7 +42,10 @@ class LoginActivity : BaseActivity(), ILoginView {
     }
 
     override fun setPortrait(portrait: String?) {
-        Glide.with(this).load(portrait).error(R.mipmap.ic_launcher_round).into(mIvPortrait)
+        PLog.e(portrait.toString())
+        Glide.with(this).load(portrait)
+                .error(Glide.with(this).load(R.mipmap.default_portrait))
+                .into(mIvPortrait)
     }
 
     override fun initView() {
@@ -51,13 +55,15 @@ class LoginActivity : BaseActivity(), ILoginView {
         mEtPwd = etPwdLogin
         val btnLogin = btnLogin
 
-        mLayout.setOnClickListener { KeyBoradUtil.hideInputFromWindow(this, mLayout) }
         val presenter = LoginPresenterImp(this, this)
+        presenter.getPortrait()
         btnLogin.setOnClickListener { presenter.login() }
+        mLayout.setOnClickListener { KeyBoradUtil.hideInputFromWindow(this, mLayout) }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
     }
+
 }

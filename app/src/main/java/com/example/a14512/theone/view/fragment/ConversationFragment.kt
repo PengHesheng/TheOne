@@ -2,12 +2,12 @@ package com.example.a14512.theone.view.fragment
 
 import android.os.Bundle
 import android.support.v4.widget.SwipeRefreshLayout
+import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import cn.bmob.newim.bean.BmobIMConversation
 import cn.bmob.newim.event.MessageEvent
 import cn.bmob.newim.event.OfflineMessageEvent
 import com.example.a14512.theone.R
@@ -21,6 +21,7 @@ import com.example.a14512.theone.presenter.IConversationPresenter
 import com.example.a14512.theone.utils.PLog
 import com.example.a14512.theone.view.IConversationView
 import com.example.a14512.theone.view.activity.ChatActivity
+import com.example.a14512.theone.view.activity.NewFriendActivity
 import kotlinx.android.synthetic.main.fragment_conversation.*
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
@@ -66,7 +67,9 @@ class ConversationFragment: BaseFragment(), IConversationView {
         val layoutManager = LinearLayoutManager(context)
         layoutManager.orientation = LinearLayoutManager.VERTICAL
         mRecyclerView.layoutManager = layoutManager
+        mRecyclerView.addItemDecoration(DividerItemDecoration(context, LinearLayoutManager.VERTICAL))
         mRecyclerView.adapter = mAdapter
+        mPresenter.getConversation()
 
         setClickListener()
     }
@@ -79,8 +82,12 @@ class ConversationFragment: BaseFragment(), IConversationView {
             }
 
             override fun onItemClick(view: View, position: Int) {
-                val conversation = mConversations[position] as BmobIMConversation
-                ChatActivity().actionStart(context!!, conversation)
+                val conversation = mConversations[position].getConversation()
+                if (conversation != null) {
+                    ChatActivity().actionStart(context!!, conversation)
+                } else {
+                    startActivity(context!!, NewFriendActivity::class.java)
+                }
             }
 
             override fun onItemLongClick(view: View, position: Int): Boolean {

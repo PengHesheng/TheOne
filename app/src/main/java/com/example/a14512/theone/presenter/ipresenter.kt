@@ -8,6 +8,8 @@ import com.example.a14512.theone.model.NewFriend
  */
 interface ILoginPresenter {
     fun login()
+
+    fun getPortrait()
 }
 
 interface IRegisterPresenter {
@@ -34,6 +36,8 @@ interface ISearchPresenter {
 
 interface ISettingsFragPresenter {
     fun getUserInfo()
+
+    fun loginOut()
 }
 
 interface IUserInfoPresenter {
@@ -48,4 +52,8 @@ interface INewFriendPresenter {
     fun deleteNewMsg(newFriend: NewFriend)
 
     fun rejectNewFriend(newFriend: NewFriend)
+}
+
+interface IStudyPresenter {
+    fun getDateGank()
 }

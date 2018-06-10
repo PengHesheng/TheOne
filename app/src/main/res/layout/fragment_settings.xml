@@ -1,85 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#dddddd"
     android:orientation="vertical">
 
     <RelativeLayout
         android:id="@+id/layoutUserSettings"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/white"
-        android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
-        android:paddingTop="8dp"
-        android:paddingBottom="8dp">
+        android:layout_marginTop="20dp"
+        android:background="@android:color/white"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp">
 
         <ImageView
             android:id="@+id/ivPortraitSettings"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginLeft="16dp"
-            tools:src="@mipmap/ic_launcher_round"
-            android:layout_marginStart="16dp" />
+            android:layout_marginStart="16dp"
+            tools:src="@mipmap/ic_launcher_round" />
 
         <TextView
             android:id="@+id/tvNameSettings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_toEndOf="@+id/ivPortraitSettings"
             android:layout_toRightOf="@+id/ivPortraitSettings"
             android:textSize="20sp"
-            android:layout_marginLeft="10dp"
-            tools:text="Hello World"
-            android:layout_toEndOf="@+id/ivPortraitSettings"
-            android:layout_marginStart="10dp" />
+            tools:text="Hello World" />
 
         <TextView
             android:id="@+id/tvIdSettings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tvNameSettings"
-            android:layout_toRightOf="@+id/ivPortraitSettings"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="5dp"
-            android:layout_marginLeft="10dp"
-            tools:text="id:123456"
             android:layout_toEndOf="@+id/ivPortraitSettings"
-            android:layout_marginStart="10dp" />
+            android:layout_toRightOf="@+id/ivPortraitSettings"
+            tools:text="id:123456" />
 
         <ImageView
             android:id="@+id/ivQRCodeSettings"
             android:layout_width="40dp"
             android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
+            android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
-            tools:src="@mipmap/ic_launcher"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="16dp" />
+            tools:src="@mipmap/ic_launcher" />
     </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
         android:background="@android:color/white"
-        android:paddingTop="8dp"
-        android:paddingBottom="8dp">
+        android:gravity="center_vertical"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp">
 
         <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
-            tools:src="@mipmap/laugh_face"
-            android:layout_marginStart="16dp" />
+            android:layout_marginStart="16dp"
+            android:src="@mipmap/money" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
-            tools:text="钱包"
-            android:layout_marginStart="16dp" />
+            android:layout_marginStart="16dp"
+            android:textColor="@android:color/black"
+            android:text="钱包" />
 
     </LinearLayout>
 
@@ -87,109 +88,100 @@
         android:id="@+id/layoutStudySettings"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
         android:layout_marginTop="20dp"
         android:background="@android:color/white"
-        android:paddingTop="8dp"
-        android:paddingBottom="8dp">
+        android:gravity="center_vertical"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp">
 
         <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
-            tools:src="@mipmap/laugh_face"
-            android:layout_marginStart="16dp" />
+            android:layout_marginStart="16dp"
+            android:src="@mipmap/study" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
             android:text="@string/tv_study"
-            android:layout_marginStart="16dp" />
+            android:textColor="@android:color/black" />
 
     </LinearLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@android:drawable/divider_horizontal_textfield"/>
+        android:background="@android:drawable/divider_horizontal_textfield" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
         android:background="@android:color/white"
-        android:paddingTop="8dp"
-        android:paddingBottom="8dp">
+        android:gravity="center_vertical"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp">
 
         <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
-            tools:src="@mipmap/laugh_face"
-            android:layout_marginStart="16dp" />
+            android:layout_marginStart="16dp"
+            android:src="@mipmap/laugh_face" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
             android:text="@string/tv_face_laugh"
-            android:layout_marginStart="16dp" />
+            android:textColor="@android:color/black" />
 
     </LinearLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@android:drawable/divider_horizontal_textfield"/>
+        android:background="@android:drawable/divider_horizontal_textfield" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:background="@android:color/white"
-        android:paddingTop="8dp"
-        android:paddingBottom="8dp">
-
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="16dp"
-            tools:src="@mipmap/laugh_face"
-            android:layout_marginStart="16dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:text="@string/tv_face_laugh"
-            android:layout_marginStart="16dp" />
-
-    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/layoutSettings"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:layout_marginTop="20dp"
         android:background="@android:color/white"
-        android:paddingTop="8dp"
-        android:paddingBottom="8dp">
+        android:gravity="center_vertical"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp">
 
         <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
-            tools:src="@mipmap/laugh_face"
-            android:layout_marginStart="16dp" />
+            android:layout_marginStart="16dp"
+            android:src="@mipmap/setting" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
             android:text="@string/menu_settings"
-            android:layout_marginStart="16dp" />
+            android:textColor="@android:color/black" />
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/btnLoginOut"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:textSize="20sp"
+        android:textColor="@android:color/white"
+        android:text="@string/btn_login_out"
+        android:background="@drawable/btn_bg_selector"/>
 </LinearLayout>

@@ -83,7 +83,7 @@ class UserModel : BaseModel() {
     /**
      * 获取当前用户
      */
-    fun getCurrentUser(): User {
+    fun getCurrentUser(): User? {
         return BmobUser.getCurrentUser(User::class.java)
     }
 
@@ -103,7 +103,7 @@ class UserModel : BaseModel() {
         } catch (e: Exception) {
             e.printStackTrace()
         }
-        query.addWhereContains("username", userName)
+        query.addWhereEqualTo("username", userName)
         query.setLimit(limit)
         query.order("-createdAt")
         query.findObjects(object : FindListener<User>() {
@@ -197,7 +197,7 @@ class UserModel : BaseModel() {
     fun agreeAddFriend(friend: User, listener: SaveListener<String>) {
         var f = Friend()
         var user = getCurrentUser()
-        f.setUser(user)
+        f.setUser(user!!)
         f.setFriendUser(friend)
         f.save(listener)
     }

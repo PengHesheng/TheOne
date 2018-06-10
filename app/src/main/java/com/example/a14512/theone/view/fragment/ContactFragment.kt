@@ -2,6 +2,7 @@ package com.example.a14512.theone.view.fragment
 
 import android.os.Bundle
 import android.support.v4.widget.SwipeRefreshLayout
+import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -27,7 +28,6 @@ class ContactFragment: BaseFragment(), IContactView {
     private lateinit var mSwipe: SwipeRefreshLayout
     private lateinit var mRecyclerView: RecyclerView
     private lateinit var mAdapter: ContactAdapter
-    private var mFriends: ArrayList<Friend> = ArrayList()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_contact, container, false)
@@ -42,11 +42,12 @@ class ContactFragment: BaseFragment(), IContactView {
         val layoutManager = LinearLayoutManager(context)
         layoutManager.orientation = LinearLayoutManager.VERTICAL
         mRecyclerView.layoutManager = layoutManager
+        mRecyclerView.addItemDecoration(DividerItemDecoration(context, LinearLayoutManager.VERTICAL))
         mAdapter = ContactAdapter()
         mRecyclerView.adapter = mAdapter
         mAdapter.setOnItemClickListener(object : BaseClickListener {
             override fun onItemClick(view: View, position: Int) {
-                val friend = mFriends[position]
+                val friend = mAdapter.getFriend(position)
                 val friendUser = friend.getFriendUser()
                 val info = BmobIMUserInfo(friendUser.objectId, friendUser.username, friendUser.getAvatar())
                 val conversation = BmobIM.getInstance().startPrivateConversation(info, null)
@@ -72,8 +73,7 @@ class ContactFragment: BaseFragment(), IContactView {
     }
 
     override fun setAdapter(friends: ArrayList<Friend>) {
-        mFriends = friends
-        mAdapter.setFriends(mFriends)
+        mAdapter.setFriends(friends)
         mSwipe.isRefreshing = false
     }
 }

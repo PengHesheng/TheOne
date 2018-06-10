@@ -19,9 +19,12 @@ class ContactPresenterImp(private val mContext: Context,
                 if (p1 == null) {
                     if (p0 != null) {
                         mView.setAdapter(p0 as ArrayList<Friend>)
+                    } else {
+                        mView.setAdapter(ArrayList())
                     }
                 } else {
                     mView.toastMsg(p1.message.toString())
+                    mView.setAdapter(ArrayList())
                 }
             }
         })

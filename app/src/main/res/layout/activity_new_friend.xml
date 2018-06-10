@@ -8,6 +8,15 @@
 
     <include layout="@layout/include_toolbar" />
 
+    <TextView
+        android:id="@+id/tvNullNewFriend"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/tv_no_new_friend"
+        android:gravity="center_horizontal"
+        android:paddingTop="10dp"
+        android:textSize="20sp"/>
+
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/newFriendSwipe"
         android:layout_width="match_parent"

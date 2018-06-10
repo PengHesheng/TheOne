@@ -11,7 +11,12 @@ import cn.bmob.v3.exception.BmobException
 import cn.bmob.v3.listener.SaveListener
 import com.example.a14512.theone.STATUS_VERIFIED
 import com.example.a14512.theone.STATUS_VERIFY_REFUSE
-import com.example.a14512.theone.model.*
+import com.example.a14512.theone.model.AgreeFriendMsg
+import com.example.a14512.theone.model.NewFriend
+import com.example.a14512.theone.model.User
+import com.example.a14512.theone.model.UserModel
+import com.example.a14512.theone.model.dao.NewFriendManager
+import com.example.a14512.theone.utils.PLog
 import com.example.a14512.theone.view.INewFriendView
 
 /**
@@ -64,8 +69,14 @@ class NewFriendPresenterImp(private val mContext: Context,
     }
 
     override fun getAllNewFriend() {
-        mView.setAdapter(NewFriendManager.getInstance(mContext).getAllNewFriend() as ArrayList<NewFriend>)
+        val newFriends = NewFriendManager.getInstance(mContext).allNewFriend as ArrayList<NewFriend>
+        PLog.e(newFriends.size.toString())
+        if (newFriends.isEmpty()) {
+            mView.toastMsg("没有好友请求！")
+        } else {
+            mView.setAdapter(newFriends)
+            mView.setViewGone()
+        }
     }
-
 
 }

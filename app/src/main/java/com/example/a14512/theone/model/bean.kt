@@ -8,7 +8,10 @@ import com.example.a14512.theone.R
 import com.example.a14512.theone.STATUS_VERIFY_NONE
 import com.example.a14512.theone.STATUS_VERIFY_READED
 import com.example.a14512.theone.TheOneApplication
+import com.example.a14512.theone.model.dao.NewFriendManager
+import com.google.gson.annotations.SerializedName
 import org.json.JSONObject
+import java.io.Serializable
 
 /**
  * @author 14512 on 2018/5/2
@@ -96,14 +99,14 @@ class PrivateConversation(private var conversation: BmobIMConversation): Convers
     override fun getAvatar(): Any {
         return if (cType == BmobIMConversationType.PRIVATE) {
             var avatar = conversation.conversationIcon
-            if (avatar.isEmpty()) {
-                //头像为空，使用默认头像
-                R.mipmap.ic_launcher_round
+            if (avatar != null && avatar.isNotEmpty()) {
+                avatar
             } else {
-                avatar as Any
+                //头像为空，使用默认头像
+                R.mipmap.default_portrait
             }
         } else {
-            R.mipmap.ic_launcher_round
+            R.mipmap.default_portrait
         }
     }
 
@@ -144,7 +147,7 @@ class PrivateConversation(private var conversation: BmobIMConversation): Convers
         conversation.updateLocalCache()
     }
 
-    fun getConversation(): BmobIMConversation {
+    override fun getConversation(): BmobIMConversation {
         return conversation
     }
 
@@ -163,7 +166,7 @@ class NewFriendConversation(friend: NewFriend): Conversation() {
 
     override fun getLastMessageTime(): Long {
         return if (lastFriend != null) {
-            lastFriend.time!!
+            lastFriend.time ?: 0
         } else {
             0
         }
@@ -188,7 +191,7 @@ class NewFriendConversation(friend: NewFriend): Conversation() {
     }
 
     override fun getUnReadCount(): Int {
-        return NewFriendManager.getInstance(TheOneApplication.getContext()).getNewInvitationCount()
+        return NewFriendManager.getInstance(TheOneApplication.getContext()).newInvitationCount
     }
 
     override fun readAllMessage() {
@@ -198,6 +201,10 @@ class NewFriendConversation(friend: NewFriend): Conversation() {
 
     fun getLastFriend(): NewFriend {
         return lastFriend
+    }
+
+    override fun getConversation(): BmobIMConversation? {
+        return null
     }
 
 }
@@ -308,4 +315,25 @@ class AgreeFriendMsg(): BmobIMExtraMessage() {
         //此处将同意添加好友的请求设置为false，为了演示怎样向会话表和消息表中新增一个类型
         return false
     }
+}
+
+data class DateGank(var category: ArrayList<String>, var error: Boolean, var results: DateResult) {
+    data class DateResult(@SerializedName("Android") var android: DateGankData,
+                          @SerializedName("App") var app: DateGankData,
+                          @SerializedName("iOS") var ios: DateGankData,
+                          @SerializedName("前端") var web: DateGankData,
+                          @SerializedName("瞎推荐") var recommend: DateGankData,
+                          @SerializedName("休息视频") var restVideo: DateGankData)
+
+    data class DateGankData(@SerializedName("_id") var id: String,
+                            var createdAt: String,
+                            var desc: String,
+                            var images: ArrayList<String>?,
+                            var publishedAt: String,
+                            var source: String,
+                            var type: String,
+                            var url: String,
+                            var used: Boolean,
+                            var who: String) : Serializable
+
 }

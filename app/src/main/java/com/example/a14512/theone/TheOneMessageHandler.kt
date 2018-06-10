@@ -1,4 +1,4 @@
-package com.example.a14512.theone.net
+package com.example.a14512.theone
 
 import android.content.Context
 import android.content.Intent
@@ -12,9 +12,9 @@ import cn.bmob.newim.listener.BmobIMMessageHandler
 import cn.bmob.newim.notification.BmobNotificationManager
 import cn.bmob.v3.exception.BmobException
 import cn.bmob.v3.listener.SaveListener
-import com.example.a14512.theone.R
 import com.example.a14512.theone.event.RefreshEvent
 import com.example.a14512.theone.model.*
+import com.example.a14512.theone.model.dao.NewFriendManager
 import com.example.a14512.theone.model.i.UpdateCacheListener
 import com.example.a14512.theone.utils.PLog
 import com.example.a14512.theone.utils.ToastUtil

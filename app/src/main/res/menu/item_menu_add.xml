@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/action_add"
         android:title="@string/menu_add"
         app:showAsAction="never" />
 

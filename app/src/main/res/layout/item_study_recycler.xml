@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#dddddd"
+    android:paddingLeft="8dp"
+    android:paddingRight="8dp"
+    android:paddingBottom="8dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvItemTypeStudy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:visibility="gone"
+        tools:text="Android"/>
+
+    <RelativeLayout
+        android:id="@+id/layoutItemStudy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvItemTitleStudy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lines="1"
+            android:ellipsize="end"
+            android:maxEms="15"
+            android:padding="5dp"
+            android:textSize="16sp"
+            android:layout_toLeftOf="@+id/ivItemStudy"
+            android:textColor="@android:color/black"
+            tools:text="有趣的飞行粒子形成星系的Drawable。"
+            android:layout_toStartOf="@+id/ivItemStudy" />
+
+        <ImageView
+            android:id="@+id/ivItemStudy"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            tools:src="@mipmap/iv_load_failure"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:scaleType="fitXY"/>
+
+        <TextView
+            android:id="@+id/tvItemAuthorStudy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lines="1"
+            tools:text="chrome"
+            android:layout_marginTop="10dp"
+            android:padding="5dp"
+            android:layout_below="@+id/tvItemTitleStudy"/>
+
+        <TextView
+            android:id="@+id/tvItemTimeStudy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lines="1"
+            android:layout_marginTop="10dp"
+            android:padding="5dp"
+            android:layout_toLeftOf="@+id/ivItemStudy"
+            android:layout_below="@+id/tvItemTitleStudy"
+            tools:text="2018/01/15"
+            android:layout_toStartOf="@+id/ivItemStudy" />
+    </RelativeLayout>
+
+</LinearLayout>

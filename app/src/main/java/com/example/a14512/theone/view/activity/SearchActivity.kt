@@ -1,6 +1,7 @@
 package com.example.a14512.theone.view.activity
 
 import android.os.Bundle
+import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.SearchView
@@ -32,7 +33,6 @@ class SearchActivity : BaseActivity(), ISearchView {
     private lateinit var mTvNoData: TextView
     private lateinit var mAdapter: SearchUserAdapter
     private lateinit var mPresenter: ISearchPresenter
-    private var mUsers: ArrayList<User> = ArrayList()
 
     override fun initView() {
         val toolbar = searchToolbar
@@ -46,6 +46,7 @@ class SearchActivity : BaseActivity(), ISearchView {
         val layoutManager = LinearLayoutManager(this)
         layoutManager.orientation = LinearLayoutManager.VERTICAL
         mRecyclerView.layoutManager = layoutManager
+        mRecyclerView.addItemDecoration(DividerItemDecoration(this, LinearLayoutManager.VERTICAL))
         mAdapter = SearchUserAdapter()
         mRecyclerView.adapter = mAdapter
         mPresenter = SearchPresenterImp(this, this)
@@ -59,6 +60,7 @@ class SearchActivity : BaseActivity(), ISearchView {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 if (query != null) {
                     mPresenter.search(query)
+                    mAdapter.setUsers(ArrayList())
                 } else {
                     toastMsg("搜索不能为空！")
                 }
@@ -67,7 +69,7 @@ class SearchActivity : BaseActivity(), ISearchView {
         })
         mAdapter.setOnItemClickListener(object : OnRecyclerItemClickListener {
             override fun onItemClick(view: View, position: Int) {
-                val user = mUsers[position]
+                val user = mAdapter.getUser(position)
                 val userInfo = BmobIMUserInfo(user.objectId, user.username, user.getAvatar())
                 UserInfoActivity().actionStart(this@SearchActivity, userInfo)
             }
@@ -77,7 +79,7 @@ class SearchActivity : BaseActivity(), ISearchView {
             }
 
             override fun onChildViewClick(view: View, position: Int) {
-                val user = mUsers[position]
+                val user = mAdapter.getUser(position)
                 val userInfo = BmobIMUserInfo(user.objectId, user.username, user.getAvatar())
                 mPresenter.sendAddFriendMsg(userInfo)
             }
@@ -95,8 +97,7 @@ class SearchActivity : BaseActivity(), ISearchView {
             mTvNoData.visibility = View.GONE
             mGridView.visibility = View.GONE
             mRecyclerView.visibility = View.VISIBLE
-            mUsers = users
-            mAdapter.setUsers(mUsers)
+            mAdapter.setUsers(users)
         } else {
             mTvNoData.visibility = View.VISIBLE
             mTvNoData.text = "找不到结果"

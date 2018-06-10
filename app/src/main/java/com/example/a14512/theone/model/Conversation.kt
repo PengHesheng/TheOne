@@ -1,5 +1,6 @@
 package com.example.a14512.theone.model
 
+import cn.bmob.newim.bean.BmobIMConversation
 import cn.bmob.newim.bean.BmobIMConversationType
 import java.io.Serializable
 
@@ -10,17 +11,19 @@ abstract class Conversation : Serializable, Comparable<Any> {
     /**
      * 会话id
      */
-    protected lateinit var cId: String
+    protected var cId: String = ""
 
     /**
      * 会话类型
      */
-    protected lateinit var cType: BmobIMConversationType
+    protected var cType: BmobIMConversationType = BmobIMConversationType.NONE
 
     /**
      * 会话名称
      */
-    protected lateinit var cName: String
+    protected var cName: String = ""
+
+    abstract fun getConversation(): BmobIMConversation?
 
     /**
      * 获取头像-用于会话界面显示

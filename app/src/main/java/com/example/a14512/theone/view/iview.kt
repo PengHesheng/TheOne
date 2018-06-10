@@ -1,9 +1,6 @@
 package com.example.a14512.theone.view
 
-import com.example.a14512.theone.model.Conversation
-import com.example.a14512.theone.model.Friend
-import com.example.a14512.theone.model.NewFriend
-import com.example.a14512.theone.model.User
+import com.example.a14512.theone.model.*
 
 /**
  * @author 14512 on 2018/5/27
@@ -67,4 +64,10 @@ interface IUserInfoView : IBaseView
 
 interface INewFriendView : IBaseView {
     fun setAdapter(newFriends: ArrayList<NewFriend>)
+
+    fun setViewGone()
+}
+
+interface IStudyView: IBaseView {
+    fun setAdapter(datas: ArrayList<DateGank.DateGankData>)
 }

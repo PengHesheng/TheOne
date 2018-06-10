@@ -1,6 +1,7 @@
 package com.example.a14512.theone.utils
 
 import android.annotation.SuppressLint
+import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -50,9 +51,30 @@ object TimeUtil {
      */
     @SuppressLint("SimpleDateFormat")
     fun getNowYMD(): String {
-
         val mDateFormat = SimpleDateFormat("yyyy-MM-dd")
         return mDateFormat.format(Date())
+    }
+
+    /**
+     * 计算指定格式的某一天，返货某一天的日期
+     * @param format
+     * @param disDay
+     * @return String
+     */
+    @SuppressLint("SimpleDateFormat")
+    fun getOldYMD(format: String, disDay: Int): String {
+        val dateFormat = SimpleDateFormat(format)
+        val begin = Date()
+        val date = Calendar.getInstance()
+        date.time = begin
+        date.set(Calendar.DATE, date.get(Calendar.DATE) + disDay)
+        var end: Date? = null
+        try {
+            end = dateFormat.parse(dateFormat.format(date.time))
+        } catch (e: ParseException) {
+            e.printStackTrace()
+        }
+        return dateFormat.format(end)
     }
 
 

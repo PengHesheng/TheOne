@@ -86,6 +86,14 @@ class MainActivity : BaseActivity() {
             val popupMenu = PopupMenu(this, mIvAdd)
             popupMenu.inflate(R.menu.item_menu_add)
             popupMenu.setOnMenuItemClickListener {
+                when(it.itemId) {
+                    R.id.action_add -> {
+                        startActivity(this, SearchActivity::class.java)
+                    }
+                    R.id.action_scan -> {
+                        //TODO 扫一扫
+                    }
+                }
                 return@setOnMenuItemClickListener true
             }
             popupMenu.show()

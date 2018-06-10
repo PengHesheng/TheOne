@@ -41,14 +41,16 @@ class UserInfoActivity : BaseActivity(), IUserInfoView {
         val presenter = UserInfoPresenterImp(this, this)
         mUserInfo = intent.getSerializableExtra("userInfo") as BmobIMUserInfo
         if (mUserInfo != null) {
-            if (mUserInfo.userId == UserModel.getInstance().getCurrentUser().objectId) {
+            if (mUserInfo.userId == UserModel.getInstance().getCurrentUser()!!.objectId) {
                 btnAdd.visibility = View.GONE
                 btnChat.visibility = View.GONE
             } else {
                 btnAdd.visibility = View.VISIBLE
                 btnChat.visibility = View.VISIBLE
             }
-            Glide.with(this).load(mUserInfo.avatar).error(R.mipmap.ic_launcher_round).into(ivPortrait)
+            Glide.with(this).load(mUserInfo.avatar)
+                    .error(Glide.with(this).load(R.mipmap.default_portrait))
+                    .into(ivPortrait)
             name.text = mUserInfo.name
         }
         btnAdd.setOnClickListener {

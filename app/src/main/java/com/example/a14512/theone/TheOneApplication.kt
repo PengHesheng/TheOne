@@ -3,7 +3,6 @@ package com.example.a14512.theone
 import android.app.Application
 import android.content.Context
 import cn.bmob.newim.BmobIM
-import com.example.a14512.theone.net.TheOneMessageHandler
 import java.io.BufferedReader
 import java.io.File
 import java.io.FileReader

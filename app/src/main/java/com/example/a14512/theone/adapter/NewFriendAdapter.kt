@@ -13,6 +13,7 @@ import com.example.a14512.theone.R
 import com.example.a14512.theone.STATUS_VERIFY_NONE
 import com.example.a14512.theone.STATUS_VERIFY_READED
 import com.example.a14512.theone.model.NewFriend
+import com.example.a14512.theone.utils.PLog
 import kotlinx.android.synthetic.main.item_new_friend_recycler.view.*
 
 /**
@@ -20,7 +21,7 @@ import kotlinx.android.synthetic.main.item_new_friend_recycler.view.*
  */
 class NewFriendAdapter : BaseAdapter<RecyclerView.ViewHolder>() {
     private lateinit var mContext: Context
-    private lateinit var mListener: OnRecyclerItemClickListener
+    private lateinit var mListener: BaseClickListener
     private var mNewFriends: ArrayList<NewFriend> = ArrayList()
 
     fun setNewFriends(newFriends: ArrayList<NewFriend>) {
@@ -43,8 +44,12 @@ class NewFriendAdapter : BaseAdapter<RecyclerView.ViewHolder>() {
         notifyDataSetChanged()
     }
 
+    fun getNewFriend(position: Int): NewFriend {
+        return mNewFriends[position]
+    }
+
     override fun setOnItemClickListener(listener: BaseClickListener) {
-        mListener = listener as OnRecyclerItemClickListener
+        mListener = listener
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -61,19 +66,17 @@ class NewFriendAdapter : BaseAdapter<RecyclerView.ViewHolder>() {
         if (holder is NewFriendHolder) {
             val friend = mNewFriends[position]
             Glide.with(mContext).load(friend.avatar)
-                    .error(R.mipmap.ic_launcher_round).into(holder.ivPortrait)
-            holder.tvName.text = friend.name
+                    .error(Glide.with(mContext).load(R.mipmap.default_portrait))
+                    .into(holder.ivPortrait)
+            PLog.e(friend.name.toString())
+            holder.tvName.text = friend.uid
             val status = friend.status
             if (status == null || status == STATUS_VERIFY_NONE
                     || status == STATUS_VERIFY_READED || mListener != null) {
-                //TODO view的暴露有待优化
-                holder.spinner.setOnClickListener {
-                    val choice = mContext.resources.getStringArray(R.array.agree_or_reject)
-                    holder.tvHint.text = choice[position]
-                    mListener.onChildViewClick(it, position)
-                    it.visibility = View.GONE
-                    holder.tvHint.visibility = View.VISIBLE
+                holder.itemView.setOnClickListener {
+                    mListener.onItemClick(it, position)
                 }
+
                 holder.itemView.setOnLongClickListener {
                     mListener.onItemLongClick(it, position)
                 }

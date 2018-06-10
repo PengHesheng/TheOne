@@ -9,7 +9,7 @@ abstract class BaseModel {
         const val CODE_NULL = 1000
         const val CODE_NOT_EQUAL = 1001
 
-        const val DEFAULT_LIMIT = 20
+        const val DEFAULT_LIMIT = 10
     }
 
 }
