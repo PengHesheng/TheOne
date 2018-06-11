@@ -6,10 +6,11 @@ import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.View
+import android.widget.Spinner
 import android.widget.TextView
 import com.example.a14512.theone.R
+import com.example.a14512.theone.adapter.BaseClickListener
 import com.example.a14512.theone.adapter.NewFriendAdapter
-import com.example.a14512.theone.adapter.OnRecyclerItemClickListener
 import com.example.a14512.theone.base.BaseActivity
 import com.example.a14512.theone.model.NewFriend
 import com.example.a14512.theone.presenter.NewFriendPresenterImp
@@ -57,19 +58,31 @@ class NewFriendActivity : BaseActivity(), INewFriendView {
         mSwipe.setOnRefreshListener {
             presenter.getAllNewFriend()
         }
-        mAdapter.setOnItemClickListener(object : OnRecyclerItemClickListener {
+        mAdapter.setOnItemClickListener(object : BaseClickListener {
             override fun onItemClick(view: View, position: Int) {
+                val choice = resources.getStringArray(R.array.agree_or_reject)
+                val spinner = view.findViewById<Spinner>(R.id.spinnerItemNewFriend)
+                val tvHint = view.findViewById<TextView>(R.id.tvItemHintNewFriend)
+                spinner.setOnItemClickListener { parent, view, position1, id ->
+                    tvHint.text = choice[position1]
+                    when(position1) {
+                        1 -> {
+                            presenter.agreeNewFriend(mAdapter.getNewFriend(position))
+                        }
+
+                        2 -> {
+                            presenter.rejectNewFriend(mAdapter.getNewFriend(position))
+                        }
+                    }
+                    tvHint.visibility = View.VISIBLE
+                    view!!.visibility = View.INVISIBLE
+                }
             }
 
             override fun onItemLongClick(view: View, position: Int): Boolean {
                 //删除逻辑
                 presenter.deleteNewMsg(mAdapter.getNewFriend(position))
                 return true
-            }
-
-            override fun onChildViewClick(view: View, position: Int) {
-                presenter.agreeNewFriend(mAdapter.getNewFriend(position))
-//                presenter.rejectNewFriend(mAdapter.getNewFriend(position))
             }
         })
     }
