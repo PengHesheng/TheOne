@@ -43,14 +43,25 @@ dependencies {
     implementation 'cn.bmob.android:bmob-sdk:3.6.3'
 
     //网络请求 + RxJava
-//    implementation 'com.google.code.gson:gson:2.8.0'
-//    implementation 'io.reactivex.rxjava2:rxjava:2.0.1'
-//    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
-//    implementation 'com.squareup.retrofit2:retrofit:2.2.0'
-//    implementation 'com.squareup.retrofit2:converter-gson:2.2.0'
-//    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.2.0'
-//    implementation 'com.squareup.okhttp3:okhttp:3.8.1'
-//    implementation 'com.squareup.okhttp3:logging-interceptor:3.6.0'
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.9'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
+    implementation ('com.squareup.okhttp3:okhttp:3.10.0') {
+        exclude module: 'okio'
+    }
+    implementation ('com.squareup.okhttp3:logging-interceptor:3.9.0') {
+        exclude module: 'okhttp'
+    }
+    implementation ('com.squareup.retrofit2:retrofit:2.2.0')
+            { exclude group: 'com.squareup.okhttp3'
+            }
+    implementation ('com.squareup.retrofit2:converter-gson:2.2.0')
+            { exclude group: 'com.google.code.gson'
+                exclude group: 'com.squareup.okhttp3'
+                exclude group: 'com.squareup.retrofit2'
+            }
+    implementation ('com.squareup.retrofit2:adapter-rxjava2:2.2.0')
+            { exclude group: 'com.squareup.okhttp3'
+                exclude group: 'com.squareup.retrofit2' }
 
     implementation 'org.greenrobot:eventbus:3.0.0'
     //内存管理
@@ -58,7 +69,6 @@ dependencies {
     //图片加载
     implementation 'com.github.bumptech.glide:glide:4.7.1'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.7.1'
-    implementation 'jp.wasabeef:glide-transformations:2.0.2'
     implementation 'com.readystatesoftware.systembartint:systembartint:1.0.3'
     implementation files('libs/universal-image-loader-1.9.5.jar')
 }

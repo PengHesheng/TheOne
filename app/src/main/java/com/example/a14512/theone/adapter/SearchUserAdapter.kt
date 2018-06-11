@@ -8,9 +8,9 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import com.bumptech.glide.Glide
 import com.example.a14512.theone.R
 import com.example.a14512.theone.model.User
+import com.example.a14512.theone.utils.GlideUtil
 import kotlinx.android.synthetic.main.item_search_user_recycler.view.*
 
 /**
@@ -46,9 +46,7 @@ class SearchUserAdapter : BaseAdapter<RecyclerView.ViewHolder>() {
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if (holder is SearchUserHolder) {
             val user = mUsers[position]
-            Glide.with(mContext).load(user.getAvatar())
-                    .error(Glide.with(mContext).load(R.mipmap.default_portrait))
-                    .into(holder.ivPortrait)
+            GlideUtil.glidePortrait(mContext, user.getAvatar(), holder.ivPortrait)
             holder.tvName.text = user.username
             if (mListener != null) {
                 holder.btnAdd.setOnClickListener {

@@ -4,10 +4,10 @@ import android.os.Bundle
 import android.support.constraint.ConstraintLayout
 import android.support.design.widget.TextInputEditText
 import android.widget.ImageView
-import com.bumptech.glide.Glide
 import com.example.a14512.theone.R
 import com.example.a14512.theone.base.BaseActivity
 import com.example.a14512.theone.presenter.LoginPresenterImp
+import com.example.a14512.theone.utils.GlideUtil
 import com.example.a14512.theone.utils.KeyBoradUtil
 import com.example.a14512.theone.utils.PLog
 import com.example.a14512.theone.utils.ToastUtil
@@ -43,9 +43,7 @@ class LoginActivity : BaseActivity(), ILoginView {
 
     override fun setPortrait(portrait: String?) {
         PLog.e(portrait.toString())
-        Glide.with(this).load(portrait)
-                .error(Glide.with(this).load(R.mipmap.default_portrait))
-                .into(mIvPortrait)
+        GlideUtil.glidePortrait(this, portrait, mIvPortrait)
     }
 
     override fun initView() {

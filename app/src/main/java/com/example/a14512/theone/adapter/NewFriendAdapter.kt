@@ -8,11 +8,11 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.Spinner
 import android.widget.TextView
-import com.bumptech.glide.Glide
 import com.example.a14512.theone.R
 import com.example.a14512.theone.STATUS_VERIFY_NONE
 import com.example.a14512.theone.STATUS_VERIFY_READED
 import com.example.a14512.theone.model.NewFriend
+import com.example.a14512.theone.utils.GlideUtil
 import com.example.a14512.theone.utils.PLog
 import kotlinx.android.synthetic.main.item_new_friend_recycler.view.*
 
@@ -65,9 +65,7 @@ class NewFriendAdapter : BaseAdapter<RecyclerView.ViewHolder>() {
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if (holder is NewFriendHolder) {
             val friend = mNewFriends[position]
-            Glide.with(mContext).load(friend.avatar)
-                    .error(Glide.with(mContext).load(R.mipmap.default_portrait))
-                    .into(holder.ivPortrait)
+            GlideUtil.glidePortrait(mContext, friend.avatar, holder.ivPortrait)
             PLog.e(friend.name.toString())
             holder.tvName.text = friend.uid
             val status = friend.status

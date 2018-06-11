@@ -9,9 +9,9 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import cn.bmob.newim.BmobIM
-import com.bumptech.glide.Glide
 import com.example.a14512.theone.R
 import com.example.a14512.theone.model.Conversation
+import com.example.a14512.theone.utils.GlideUtil
 import com.example.a14512.theone.utils.TimeUtil
 import kotlinx.android.synthetic.main.item_conversation_recycler.view.*
 
@@ -59,8 +59,7 @@ class ConversationAdapter : BaseAdapter<RecyclerView.ViewHolder>() {
             val conversation = mConversations[position]
             holder.tvContent.text = conversation.getLastMessageContent()
             holder.tvTime.text = TimeUtil.getChatTime(conversation.getLastMessageTime())
-            Glide.with(mContext).load(conversation.getAvatar())
-                    .into(holder.ivPortrait)
+            GlideUtil.glidePortrait(mContext, conversation.getAvatar().toString(), holder.ivPortrait)
             holder.tvName.text = conversation.getcName()
             val unRead = BmobIM.getInstance().getUnReadCount(conversation.getcId())
             if (unRead > 0) {

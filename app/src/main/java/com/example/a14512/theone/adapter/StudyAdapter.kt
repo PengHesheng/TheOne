@@ -8,9 +8,9 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
-import com.bumptech.glide.Glide
 import com.example.a14512.theone.R
 import com.example.a14512.theone.model.DateGank
+import com.example.a14512.theone.utils.GlideUtil
 import kotlinx.android.synthetic.main.item_study_recycler.view.*
 
 /**
@@ -56,9 +56,7 @@ class StudyAdapter : BaseAdapter<RecyclerView.ViewHolder>() {
             holder.tvAuthor.text = data.who
             holder.tvPublishTime.text = data.publishedAt
             if (data.images != null && data.images!!.isNotEmpty()) {
-                Glide.with(mContext).load(data.images!![0])
-                        .error(Glide.with(mContext).load(R.mipmap.iv_load_failure))
-                        .into(holder.iv)
+                GlideUtil.glideImg(mContext, data.images?.get(0), holder.iv)
             }
             if (mListener != null) {
                 holder.layout.setOnClickListener {

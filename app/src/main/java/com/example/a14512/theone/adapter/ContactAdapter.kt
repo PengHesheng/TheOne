@@ -8,9 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import com.bumptech.glide.Glide
 import com.example.a14512.theone.R
 import com.example.a14512.theone.model.Friend
+import com.example.a14512.theone.utils.GlideUtil
 import com.example.a14512.theone.view.activity.NewFriendActivity
 import kotlinx.android.synthetic.main.item_contact_recycler.view.*
 import kotlinx.android.synthetic.main.item_header_contact_recycler.view.*
@@ -80,9 +80,7 @@ class ContactAdapter : BaseAdapter<RecyclerView.ViewHolder>() {
         if (holder is ContactHolder) {
             val friend = mFriends[position]
             val friendUser = friend.getFriendUser()
-            Glide.with(mContext).load(friendUser.getAvatar())
-                    .error(Glide.with(mContext).load(R.mipmap.default_portrait))
-                    .into(holder.ivPortrait)
+            GlideUtil.glidePortrait(mContext, friendUser.getAvatar(), holder.ivPortrait)
             holder.tvName.text = friendUser.username
             if (mListener != null) {
                 holder.itemView.setOnClickListener {

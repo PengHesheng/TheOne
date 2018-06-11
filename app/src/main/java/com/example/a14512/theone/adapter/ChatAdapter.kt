@@ -16,6 +16,7 @@ import cn.bmob.v3.BmobUser
 import cn.bmob.v3.exception.BmobException
 import com.bumptech.glide.Glide
 import com.example.a14512.theone.R
+import com.example.a14512.theone.utils.GlideUtil
 import com.example.a14512.theone.utils.TimeUtil
 import kotlinx.android.synthetic.main.item_chat_agree_recycler.view.*
 import kotlinx.android.synthetic.main.item_chat_receive_img_recycler.view.*
@@ -200,9 +201,7 @@ class ChatAdapter : BaseAdapter<RecyclerView.ViewHolder>() {
     private fun bindReceiveVideo(holder: ReceiveVideoHolder, msg: BmobIMMessage, position: Int) {
         val info = msg.bmobIMUserInfo
         holder.tvTime.visibility = if (shouldShowTime(position)) View.VISIBLE else View.GONE
-        Glide.with(mContext).load(info?.avatar)
-                .error(Glide.with(mContext).load(R.mipmap.default_portrait))
-                .into(holder.ivPortrait)
+        GlideUtil.glidePortrait(mContext, info?.avatar, holder.ivPortrait)
         holder.tvTime.text = TimeUtil.getChatTime(msg.createTime)
         holder.tvContent.text = "接收到的视频文件${msg.content}"
 
@@ -226,9 +225,7 @@ class ChatAdapter : BaseAdapter<RecyclerView.ViewHolder>() {
     private fun bindSendVideo(holder: SendVideoHolder, msg: BmobIMMessage, position: Int) {
         val info = msg.bmobIMUserInfo
         holder.tvTime.visibility = if (shouldShowTime(position)) View.VISIBLE else View.GONE
-        Glide.with(mContext).load(info?.avatar)
-                .error(Glide.with(mContext).load(R.mipmap.default_portrait))
-                .into(holder.ivPortrait)
+        GlideUtil.glidePortrait(mContext, info?.avatar, holder.ivPortrait)
         holder.tvTime.text = TimeUtil.getChatTime(msg.createTime)
         holder.tvContent.text = "发送的视频文件${msg.content}"
 
@@ -270,9 +267,7 @@ class ChatAdapter : BaseAdapter<RecyclerView.ViewHolder>() {
         val info = msg.bmobIMUserInfo
         val message = BmobIMLocationMessage.buildFromDB(msg)
         holder.tvTime.visibility = if (shouldShowTime(position)) View.VISIBLE else View.GONE
-        Glide.with(mContext).load(info?.avatar)
-                .error(Glide.with(mContext).load(R.mipmap.default_portrait))
-                .into(holder.ivPortrait)
+        GlideUtil.glidePortrait(mContext, info?.avatar, holder.ivPortrait)
         holder.tvTime.text = TimeUtil.getChatTime(msg.createTime)
         holder.tvContent.text = message.address
 
@@ -296,9 +291,7 @@ class ChatAdapter : BaseAdapter<RecyclerView.ViewHolder>() {
         val info = msg.bmobIMUserInfo
         val message = BmobIMLocationMessage.buildFromDB(msg)
         holder.tvTime.visibility = if (shouldShowTime(position)) View.VISIBLE else View.GONE
-        Glide.with(mContext).load(info?.avatar)
-                .error(Glide.with(mContext).load(R.mipmap.default_portrait))
-                .into(holder.ivPortrait)
+        GlideUtil.glidePortrait(mContext, info?.avatar, holder.ivPortrait)
         holder.tvTime.text = TimeUtil.getChatTime(msg.createTime)
         holder.tvContent.text = message.address
 
@@ -340,9 +333,7 @@ class ChatAdapter : BaseAdapter<RecyclerView.ViewHolder>() {
         val info = msg.bmobIMUserInfo
         val message = BmobIMAudioMessage.buildFromDB(true, msg)
         holder.tvTime.visibility = if (shouldShowTime(position)) View.VISIBLE else View.GONE
-        Glide.with(mContext).load(info?.avatar)
-                .error(Glide.with(mContext).load(R.mipmap.default_portrait))
-                .into(holder.ivPortrait)
+        GlideUtil.glidePortrait(mContext, info?.avatar, holder.ivPortrait)
         holder.tvTime.text = TimeUtil.getChatTime(msg.createTime)
         val isExists = BmobDownloadManager.isAudioExist(currentUid, message)
         if (!isExists) {//若指定格式的录音文件不存在，则需要下载，因为其文件比较小，故放在此下载
@@ -393,9 +384,7 @@ class ChatAdapter : BaseAdapter<RecyclerView.ViewHolder>() {
         val info = msg.bmobIMUserInfo
         val message = BmobIMAudioMessage.buildFromDB(true, msg)
         holder.tvTime.visibility = if (shouldShowTime(position)) View.VISIBLE else View.GONE
-        Glide.with(mContext).load(info?.avatar)
-                .error(Glide.with(mContext).load(R.mipmap.default_portrait))
-                .into(holder.ivPortrait)
+        GlideUtil.glidePortrait(mContext, info?.avatar, holder.ivPortrait)
         holder.tvTime.text = TimeUtil.getChatTime(msg.createTime)
         holder.tvLength.text = message.duration.toString()
 
@@ -443,13 +432,9 @@ class ChatAdapter : BaseAdapter<RecyclerView.ViewHolder>() {
         val info = msg.bmobIMUserInfo
         val message = BmobIMImageMessage.buildFromDB(true, msg)
         holder.tvTime.visibility = if (shouldShowTime(position)) View.VISIBLE else View.GONE
-        Glide.with(mContext).load(info?.avatar)
-                .error(Glide.with(mContext).load(R.mipmap.default_portrait))
-                .into(holder.ivPortrait)
+        GlideUtil.glidePortrait(mContext, info?.avatar, holder.ivPortrait)
         holder.tvTime.text = TimeUtil.getChatTime(msg.createTime)
-        Glide.with(mContext).load(message.remoteUrl)
-                .error(Glide.with(mContext).load(R.mipmap.iv_load_failure))
-                .into(holder.ivContent)
+        GlideUtil.glideImg(mContext, message.remoteUrl, holder.ivContent)
 
         if (mListener != null) {
             holder.ivPortrait.setOnClickListener {
@@ -471,9 +456,7 @@ class ChatAdapter : BaseAdapter<RecyclerView.ViewHolder>() {
         val info = msg.bmobIMUserInfo
         val message = BmobIMImageMessage.buildFromDB(true, msg)
         holder.tvTime.visibility = if (shouldShowTime(position)) View.VISIBLE else View.GONE
-        Glide.with(mContext).load(info?.avatar)
-                .error(Glide.with(mContext).load(R.mipmap.default_portrait))
-                .into(holder.ivPortrait)
+        GlideUtil.glidePortrait(mContext, info?.avatar, holder.ivPortrait)
         holder.tvTime.text = TimeUtil.getChatTime(msg.createTime)
         Glide.with(mContext).load(if (message.remoteUrl.isEmpty()) message.localPath else message.remoteUrl)
                 .error(Glide.with(mContext).load(R.mipmap.iv_load_failure))
@@ -519,9 +502,7 @@ class ChatAdapter : BaseAdapter<RecyclerView.ViewHolder>() {
     private fun bindReceiveText(holder: ReceiveTextHolder, msg: BmobIMMessage, position: Int) {
         val info = msg.bmobIMUserInfo
         holder.tvTime.visibility = if (shouldShowTime(position)) View.VISIBLE else View.GONE
-        Glide.with(mContext).load(info?.avatar)
-                .error(Glide.with(mContext).load(R.mipmap.default_portrait))
-                .into(holder.ivPortrait)
+        GlideUtil.glidePortrait(mContext, info?.avatar, holder.ivPortrait)
         holder.tvTime.text = TimeUtil.getChatTime(msg.createTime)
         holder.tvContent.text = msg.content
 
@@ -544,9 +525,7 @@ class ChatAdapter : BaseAdapter<RecyclerView.ViewHolder>() {
     private fun bindSendText(holder: SendTextHolder, msg: BmobIMMessage, position: Int) {
         val info = msg.bmobIMUserInfo
         holder.tvTime.visibility = if (shouldShowTime(position)) View.VISIBLE else View.GONE
-        Glide.with(mContext).load(info?.avatar)
-                .error(Glide.with(mContext).load(R.mipmap.default_portrait))
-                .into(holder.ivPortrait)
+        GlideUtil.glidePortrait(mContext, info?.avatar, holder.ivPortrait)
         holder.tvTime.text = TimeUtil.getChatTime(msg.createTime)
         holder.tvContent.text = msg.content
 
