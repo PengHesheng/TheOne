@@ -11,6 +11,7 @@ import android.widget.TextView
 import com.example.a14512.theone.R
 import com.example.a14512.theone.model.DateGank
 import com.example.a14512.theone.utils.GlideUtil
+import com.example.a14512.theone.utils.PLog
 import kotlinx.android.synthetic.main.item_study_recycler.view.*
 
 /**
@@ -24,6 +25,7 @@ class StudyAdapter : BaseAdapter<RecyclerView.ViewHolder>() {
 
     fun setDatas(dateDatas: ArrayList<DateGank.DateGankData>) {
         mDateDatas = dateDatas
+        mType = ""
         notifyDataSetChanged()
     }
 
@@ -47,14 +49,14 @@ class StudyAdapter : BaseAdapter<RecyclerView.ViewHolder>() {
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if (holder is StudyHolder) {
             val data = mDateDatas[position]
-            if (mType != data.type) {
+            if (data.type != mType) {
                 mType = data.type
                 holder.tvType.text = mType
                 holder.tvType.visibility = View.VISIBLE
             }
             holder.tvTitle.text = data.desc
             holder.tvAuthor.text = data.who
-            holder.tvPublishTime.text = data.publishedAt
+            holder.tvPublishTime.text = data.publishedAt.substring(0, 10)
             if (data.images != null && data.images!!.isNotEmpty()) {
                 GlideUtil.glideImg(mContext, data.images?.get(0), holder.iv)
             }

@@ -4,10 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#dddddd"
-    android:paddingLeft="8dp"
-    android:paddingRight="8dp"
-    android:paddingBottom="8dp"
     android:orientation="vertical">
 
     <TextView
@@ -19,12 +15,19 @@
         android:textSize="20sp"
         android:gravity="center"
         android:visibility="gone"
+        android:textColor="@android:color/white"
         tools:text="Android"/>
+
 
     <RelativeLayout
         android:id="@+id/layoutItemStudy"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp">
 
         <TextView
             android:id="@+id/tvItemTitleStudy"
