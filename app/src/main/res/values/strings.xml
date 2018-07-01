@@ -34,4 +34,5 @@
     <string name="btn_login_out">退出登录</string>
     <string name="tv_new_friend">新朋友</string>
     <string name="tv_no_new_friend">没有好友请求！</string>
+    <string name="btn_agree">同意</string>
 </resources>

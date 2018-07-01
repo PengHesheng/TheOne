@@ -12,9 +12,12 @@ import com.example.a14512.theone.R
 object GlideUtil {
 
     fun glidePortrait(context: Context, url: String?, iv: ImageView) {
-        val options = RequestOptions().error(R.mipmap.default_portrait)
+        val options = RequestOptions()
+                .error(R.mipmap.default_portrait)
                 .placeholder(R.mipmap.default_portrait)
-        Glide.with(context).load(url).apply(options).into(iv)
+                .circleCrop()
+        //圆形切角，错误的时候无法加载本地圆形
+        Glide.with(context).load(R.mipmap.default_portrait).apply(options).into(iv)
     }
 
     fun glideImg(context: Context, url: String?, iv: ImageView) {

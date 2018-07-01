@@ -15,7 +15,7 @@ import java.util.*
 class StudyPresenterImp(private val mContext: Context,
                         private val mView: IStudyView) : IStudyPresenter {
     override fun getDateGank() {
-        val date = TimeUtil.getOldYMD("yyyy/MM/dd", -3)
+        val date = TimeUtil.getOldYMD("yyyy/MM/dd", -5)
         PLog.e(date)
         val apiObserver = object : ApiObserver<DateGank>(mContext, true, false) {
             override fun onNext(t: DateGank) {

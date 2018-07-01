@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    
-    <string-array name="agree_or_reject">
-        <item>同意</item>
-        <item>拒绝</item>
-    </string-array>
-</resources>

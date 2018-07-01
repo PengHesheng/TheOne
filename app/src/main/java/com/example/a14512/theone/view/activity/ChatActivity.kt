@@ -32,6 +32,8 @@ import cn.bmob.newim.listener.OnRecordChangeListener
 import cn.bmob.newim.notification.BmobNotificationManager
 import cn.bmob.v3.exception.BmobException
 import com.example.a14512.theone.R
+import com.example.a14512.theone.R.id.chatRecycler
+import com.example.a14512.theone.R.id.layoutChat
 import com.example.a14512.theone.adapter.ChatAdapter
 import com.example.a14512.theone.adapter.OnRecyclerChatItemClickListener
 import com.example.a14512.theone.base.BaseActivity
